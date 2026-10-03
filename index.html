@@ -4,481 +4,503 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Manikanta ❤️</title>
+<title>Happy Birthday Manikanta ❤️</title>
 
 <style>
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050207;
-    color:#fff;
-    font-family:Georgia,"Times New Roman",serif;
-    overflow-x:hidden;
-}
-
-section{
-    min-height:100vh;
-    padding:100px 20px;
-    position:relative;
+html,body{
+    width:100%;
+    height:100%;
     overflow:hidden;
 }
 
-.container{
-    width:min(1050px,100%);
-    margin:auto;
-    text-align:center;
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:#07030a;
+    color:white;
 }
 
-.kicker{
-    color:#e7a9c4;
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100vh;
+    min-height:100vh;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    opacity:0;
+    transform:scale(1.04);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.page.active{
+    display:flex;
+    opacity:1;
+    transform:scale(1);
+}
+
+.content{
+    width:min(900px,100%);
+    margin:auto;
+    position:relative;
+    z-index:5;
+}
+
+.small{
     font-size:12px;
     letter-spacing:5px;
     text-transform:uppercase;
+    color:#e9a8c4;
     margin-bottom:25px;
 }
 
-h1,h2,h3{
+h1{
+    font-size:clamp(4rem,13vw,9rem);
     font-weight:400;
+    line-height:.9;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #ff9ec4,
+        #fff
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 h2{
-    font-size:clamp(2.3rem,6vw,5rem);
+    font-size:clamp(2.2rem,7vw,5rem);
+    font-weight:400;
     line-height:1.1;
     margin-bottom:25px;
 }
 
 p{
     line-height:1.9;
+    color:#e2d5dc;
 }
 
-/* INTRO */
+.subtitle{
+    max-width:700px;
+    margin:0 auto;
+    font-size:18px;
+}
 
-#intro{
-    position:fixed;
-    inset:0;
-    z-index:9999;
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    margin-top:40px;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    background:
-      radial-gradient(circle at center,#321326 0,#10050d 45%,#020105 100%);
-    transition:opacity 1.5s ease;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
-.intro{
-    width:min(850px,92%);
-}
-
-.intro-small{
-    color:#e7a9c4;
-    letter-spacing:6px;
-    font-size:12px;
-    margin-bottom:35px;
-}
-
-.intro h1{
-    font-size:clamp(4rem,13vw,9rem);
-    background:linear-gradient(90deg,#fff,#ff9fc5,#fff);
-    -webkit-background-clip:text;
-    color:transparent;
-    line-height:.95;
-    margin-bottom:30px;
-}
-
-.intro-text{
-    color:#d9c9d2;
-    font-size:18px;
-    max-width:650px;
-    margin:auto;
-}
-
-.enter{
-    margin-top:40px;
-    padding:16px 35px;
-    border:1px solid rgba(255,255,255,.25);
+.next,
+.previous,
+.primary{
+    border:none;
     border-radius:50px;
-    background:linear-gradient(135deg,#c92f69,#63245c);
+    padding:14px 30px;
     color:white;
+    background:linear-gradient(
+        135deg,
+        #d93678,
+        #762a68
+    );
     cursor:pointer;
-    font-size:16px;
-    box-shadow:0 0 35px rgba(220,50,120,.3);
+    font-size:15px;
+    box-shadow:
+        0 10px 35px rgba(220,40,120,.25);
     transition:.3s;
 }
 
-.enter:hover{
-    transform:scale(1.07);
+.next:hover,
+.previous:hover,
+.primary:hover{
+    transform:translateY(-3px) scale(1.04);
 }
 
-/* MUSIC */
-
-.music{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:7000;
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:none;
-    background:#a82d62;
-    color:white;
-    font-size:21px;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(255,50,130,.45);
+.previous{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
 }
 
-/* STRENGTH */
+/* =========================
+   PAGE 1
+========================= */
 
-#strength{
+#page1{
     background:
-      radial-gradient(circle at 50% 30%,#381525,#10050d 55%,#050207);
-    display:flex;
-    align-items:center;
+        radial-gradient(
+            circle at center,
+            #3b1428 0%,
+            #150711 45%,
+            #050207 100%
+        );
 }
 
-.strength-heart{
-    width:130px;
-    height:130px;
-    margin:45px auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.intro-heart{
     font-size:70px;
-    cursor:pointer;
-    animation:heartbeat 1.4s infinite;
-    filter:drop-shadow(0 0 35px #ff3f8e);
+    margin:30px;
+    animation:heartbeat 1.5s infinite;
+    filter:drop-shadow(0 0 30px #ff438f);
 }
 
 @keyframes heartbeat{
-    0%,100%{transform:scale(1)}
-    15%{transform:scale(1.18)}
-    30%{transform:scale(1)}
-    45%{transform:scale(1.15)}
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.2);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+
+    45%{
+        transform:scale(1.14);
+    }
+
 }
 
-.strength-text{
-    max-width:760px;
-    margin:auto;
-    font-size:20px;
-    color:#eadce3;
-}
+/* =========================
+   PAGE 2
+========================= */
 
-.strength-reveal{
-    display:none;
-    margin-top:35px;
-    color:#ffb5d1;
-    font-size:25px;
-}
-
-/* QUOTE */
-
-.quote-section{
-    background:#08040a;
-    display:flex;
-    align-items:center;
-}
-
-.quote{
-    max-width:900px;
-    margin:auto;
-    font-size:clamp(2rem,5vw,4.5rem);
-    line-height:1.25;
-    color:#f5dce7;
-}
-
-.quote span{
-    color:#ff82b1;
-}
-
-/* LETTER */
-
-#letter{
+#page2{
     background:
-      linear-gradient(180deg,#08030a,#190a16,#070308);
+        radial-gradient(
+            circle at center,
+            #2a1020,
+            #08030a 70%
+        );
+}
+
+.big-heart{
+    font-size:100px;
+    margin:35px;
+    animation:heartbeat 1.4s infinite;
+}
+
+/* =========================
+   PAGE 3 LETTER
+========================= */
+
+#page3{
+    background:
+        linear-gradient(
+            135deg,
+            #0c040a,
+            #28101c,
+            #080309
+        );
 }
 
 .letter{
-    max-width:800px;
-    margin:50px auto;
+    max-width:780px;
+    margin:20px auto;
+
+    padding:35px;
+
     text-align:left;
-    padding:45px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.12);
+
     border-radius:25px;
-    box-shadow:0 30px 100px rgba(0,0,0,.5);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55);
 }
 
 .letter p{
-    color:#e5d7df;
-    font-size:18px;
-    margin-bottom:20px;
+    font-size:17px;
+    margin-bottom:18px;
 }
 
 .signature{
     text-align:right;
     color:#ffabc9;
-    font-size:24px;
-    margin-top:35px;
+    font-size:22px;
+    margin-top:30px;
 }
 
-/* 29 REASONS */
+/* =========================
+   PAGE 4 STRENGTH
+========================= */
 
-#reasons{
+#page4{
     background:
-      radial-gradient(circle at center,#301020,#060207 70%);
+        radial-gradient(
+            circle at center,
+            #3a1226,
+            #080309 70%
+        );
 }
 
-.reason-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:18px;
-    margin-top:50px;
+.strength-box{
+    max-width:760px;
+    margin:auto;
 }
 
-.reason{
-    min-height:170px;
-    padding:28px 20px;
-    border:1px solid rgba(255,255,255,.09);
-    background:rgba(255,255,255,.04);
-    border-radius:20px;
-    transition:.4s;
+.strength-line{
+    font-size:clamp(1.5rem,4vw,3rem);
+    margin:25px 0;
+
+    opacity:0;
+    transform:translateY(20px);
+
+    animation:showLine 1s forwards;
 }
 
-.reason:hover{
-    transform:translateY(-8px);
-    border-color:#d85b8c;
-    background:rgba(255,80,140,.08);
+.strength-line:nth-child(2){
+    animation-delay:.7s;
 }
 
-.reason-number{
-    color:#ff7eae;
-    font-size:14px;
-    letter-spacing:2px;
-    margin-bottom:15px;
+.strength-line:nth-child(3){
+    animation-delay:1.4s;
 }
 
-.reason p{
-    color:#ddd;
+.strength-line:nth-child(4){
+    animation-delay:2.1s;
 }
 
-/* PHOTOS */
+.strength-line strong{
+    color:#ff83b2;
+}
 
-#memories{
+@keyframes showLine{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   MEMORY PAGES
+========================= */
+
+.memory-page{
     background:#030207;
 }
 
-.photo{
-    width:min(700px,100%);
-    margin:50px auto 25px;
+.memory-photo{
+    width:min(720px,100%);
+    margin:20px auto;
 }
 
-.photo img{
+.memory-photo img{
     width:100%;
-    max-height:650px;
-    object-fit:cover;
-    border-radius:25px;
+    max-height:62vh;
+    object-fit:contain;
+
+    border-radius:22px;
+
     border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 25px 80px rgba(0,0,0,.8);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.75);
 }
 
-.caption{
-    margin-top:20px;
-    color:#eab5ca;
+.memory-number{
+    color:#eaa6c2;
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.memory-caption{
     font-size:18px;
+    color:#e6c4d2;
+    margin-top:18px;
 }
 
-.photo-nav{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
+/* =========================
+   PAGE 9 MESSAGE
+========================= */
 
-.photo-nav button{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.08);
-    color:#fff;
-    font-size:25px;
-    cursor:pointer;
-}
-
-/* WHEN WEAK */
-
-#weak{
+#page9{
     background:
-      radial-gradient(circle at center,#22101c,#050207 70%);
+        radial-gradient(
+            circle at center,
+            #301020,
+            #070208 70%
+        );
 }
 
-.weak-list{
+.message{
     max-width:750px;
-    margin:55px auto;
-}
-
-.weak-item{
+    margin:auto;
     font-size:clamp(1.5rem,4vw,3rem);
-    margin:35px 0;
-    opacity:0;
-    transform:translateY(30px);
-    transition:1s;
+    line-height:1.45;
 }
 
-.weak-item.visible{
-    opacity:1;
-    transform:translateY(0);
+.message span{
+    color:#ff85b2;
 }
 
-.weak-item span{
-    color:#ff80ae;
-}
+/* =========================
+   PAGE 10 WISH
+========================= */
 
-/* PROMISE */
-
-#promise{
+#page10{
     background:
-      linear-gradient(135deg,#10050c,#2a0d1c,#080309);
-}
-
-.promise-box{
-    max-width:800px;
-    margin:50px auto;
-}
-
-.promise-line{
-    font-size:22px;
-    color:#e5d6df;
-    padding:20px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-/* FUTURE */
-
-#future{
-    background:#050308;
-}
-
-.timeline{
-    max-width:800px;
-    margin:55px auto;
-    text-align:left;
-}
-
-.timeline-item{
-    border-left:2px solid #b63e6e;
-    padding:0 0 45px 30px;
-    position:relative;
-}
-
-.timeline-item:before{
-    content:"❤️";
-    position:absolute;
-    left:-13px;
-    top:0;
-}
-
-.timeline-item h3{
-    color:#ffabc9;
-    font-size:25px;
-    margin-bottom:8px;
-}
-
-.timeline-item p{
-    color:#cfc2ca;
-}
-
-/* CAKE */
-
-#birthday{
-    background:
-      radial-gradient(circle at center,#3a122b,#070208 70%);
+        radial-gradient(
+            circle at center,
+            #41132e,
+            #070208 70%
+        );
 }
 
 .cake{
-    width:260px;
-    height:230px;
-    margin:55px auto 30px;
+    width:250px;
+    height:220px;
+
     position:relative;
+
+    margin:30px auto;
 }
 
-.cake-layer{
+.layer{
     position:absolute;
-    border-radius:16px;
-    background:linear-gradient(#ff9cc1,#ce3e78);
-    box-shadow:0 15px 30px rgba(0,0,0,.5);
+
+    background:
+        linear-gradient(
+            #ff9fc4,
+            #d33d78
+        );
+
+    border-radius:15px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.5);
 }
 
-.layer-bottom{
+.bottom{
     width:220px;
     height:65px;
-    left:20px;
+
+    left:15px;
     bottom:0;
 }
 
-.layer-middle{
+.middle{
     width:180px;
     height:60px;
-    left:40px;
+
+    left:35px;
     bottom:55px;
 }
 
-.layer-top{
+.top{
     width:140px;
     height:55px;
-    left:60px;
+
+    left:55px;
     bottom:105px;
 }
 
 .candle{
-    width:15px;
-    height:60px;
-    background:#fff;
     position:absolute;
-    left:122px;
+
+    width:14px;
+    height:60px;
+
+    background:white;
+
+    left:118px;
     bottom:155px;
 }
 
 .flame{
+    position:absolute;
+
     width:25px;
     height:35px;
+
+    left:112px;
+    bottom:208px;
+
     background:#ffd166;
+
     border-radius:50%;
-    position:absolute;
-    left:117px;
-    bottom:210px;
-    box-shadow:0 0 35px #ffad00;
+
+    box-shadow:
+        0 0 35px #ffae00;
+
     animation:flame 1s infinite alternate;
 }
 
 @keyframes flame{
-    from{transform:scale(1)}
-    to{transform:scale(1.15) rotate(4deg)}
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:
+            scale(1.15)
+            rotate(5deg);
+    }
+
 }
 
-.wish{
+.wish-message{
     display:none;
-    color:#ffb0cf;
-    font-size:23px;
+
+    color:#ffabc9;
+
+    font-size:21px;
+
+    margin-top:25px;
 }
 
-/* SECRET */
+/* =========================
+   PAGE 11 SECRET
+========================= */
 
-#secret{
+#page11{
     background:#020106;
 }
 
-.secret-lock{
-    font-size:75px;
-    margin:35px;
+.lock{
+    font-size:80px;
+    margin:25px;
 }
 
 .password{
@@ -486,192 +508,284 @@ p{
     justify-content:center;
     gap:10px;
     flex-wrap:wrap;
+
+    margin-top:25px;
 }
 
 .password input{
     width:190px;
+
     padding:14px 20px;
+
     border-radius:40px;
+
     border:1px solid #555;
+
     background:#111;
+
     color:white;
+
     text-align:center;
+
+    font-size:16px;
+}
+
+.secret{
+    display:none;
+
+    max-width:750px;
+
+    margin:30px auto;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:
+        rgba(255,70,140,.07);
+
+    border:
+        1px solid rgba(255,100,170,.2);
+}
+
+.secret p{
     font-size:17px;
 }
 
-.button{
-    padding:14px 28px;
-    border:none;
-    border-radius:40px;
-    background:#a72e61;
-    color:white;
-    cursor:pointer;
-}
+/* =========================
+   PAGE 12 FINAL
+========================= */
 
-.secret-letter{
-    display:none;
-    max-width:750px;
-    margin:40px auto;
-    padding:40px;
-    border:1px solid rgba(255,100,160,.25);
-    border-radius:25px;
-    background:rgba(255,60,130,.06);
-}
-
-.secret-letter p{
-    color:#eadce4;
-    font-size:18px;
-}
-
-/* FINAL */
-
-#final{
+#page12{
     background:
-      radial-gradient(circle at center,#350e28,#050207 70%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.final{
-    max-width:900px;
+        radial-gradient(
+            circle at center,
+            #3d102d,
+            #050207 72%
+        );
 }
 
 .final-line{
     opacity:0;
     transform:translateY(25px);
-    font-size:clamp(1.5rem,4vw,3rem);
-    margin:22px 0;
+
+    font-size:
+        clamp(1.4rem,4vw,3rem);
+
+    margin:20px 0;
 }
 
 .final-line.show{
-    animation:appear 1.4s forwards;
+    animation:
+        finalAppear 1.2s forwards;
 }
 
-@keyframes appear{
+@keyframes finalAppear{
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 .forever{
-    font-size:clamp(3.5rem,10vw,8rem);
-    color:#ff82b0;
-    text-shadow:0 0 45px rgba(255,50,130,.65);
+    font-size:
+        clamp(3.5rem,10vw,8rem);
+
+    color:#ff80ae;
+
+    text-shadow:
+        0 0 40px rgba(255,50,130,.65);
 }
 
-/* HEARTS */
+/* =========================
+   PROGRESS
+========================= */
 
-.heart{
+.progress{
     position:fixed;
-    bottom:-40px;
-    pointer-events:none;
+
+    top:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
     z-index:5000;
-    animation:floatHeart 5s linear forwards;
+
+    color:#cfaebe;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    opacity:.8;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#a92f62;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    z-index:6000;
+
+    box-shadow:
+        0 0 25px rgba(255,50,130,.4);
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-heart{
+    position:fixed;
+
+    bottom:-40px;
+
+    z-index:8000;
+
+    pointer-events:none;
+
+    animation:
+        floatHeart 5s linear forwards;
 }
 
 @keyframes floatHeart{
+
     to{
-        transform:translateY(-110vh) rotate(360deg);
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
         opacity:0;
     }
+
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
-    section{
-        padding:80px 16px;
+    .page{
+        padding:55px 16px 70px;
     }
 
     .letter{
-        padding:28px 20px;
+        padding:25px 20px;
     }
 
     .letter p{
         font-size:16px;
     }
 
+    .memory-photo img{
+        max-height:55vh;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- INTRO -->
 
-<div id="intro">
+<!-- PROGRESS -->
 
-<div class="intro">
-
-<div class="intro-small">
-A LOVE LETTER IN THE FORM OF A WEBSITE
-</div>
-
-<h1>Manikanta</h1>
-
-<p class="intro-text">
-Before you enter this little world,
-there is something I want you to know...
-</p>
-
-<p class="intro-text">
-You are not only the man I love.
-<br>
-<strong>You are my strength.</strong>
-</p>
-
-<button class="enter" onclick="enterLove()">
-Enter My Heart ❤️
-</button>
-
-</div>
-
+<div class="progress" id="progress">
+1 / 12
 </div>
 
 
 <!-- MUSIC -->
 
 <audio id="music" loop>
-<source src="the_mountain-happy-birthday-576570.mp3" type="audio/mpeg">
+
+<source
+src="the_mountain-happy-birthday-576570.mp3"
+type="audio/mpeg">
+
 </audio>
 
-<button class="music" onclick="toggleMusic()" id="musicButton">
+<button
+class="music"
+onclick="toggleMusic()"
+id="musicButton">
+
 🎵
+
 </button>
 
 
-<!-- STRENGTH -->
+<!-- =========================
+     PAGE 1
+========================= -->
 
-<section id="strength">
+<section
+class="page active"
+id="page1">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">MY STRENGTH</div>
+<div class="small">
+A little birthday gift from Bujji
+</div>
 
-<h2>
-When I say<br>
-“I love you”...
-</h2>
-
-<p class="strength-text">
-I don't only mean that I love the person you are.
-<br><br>
-
-I mean that I love the way your presence makes me feel.
-<br><br>
-
-<strong>
-Safe. Strong. Understood. Loved.
-</strong>
-</p>
-
-<div class="strength-heart" onclick="strengthReveal()">
+<div class="intro-heart">
 ❤️
 </div>
 
-<div id="strengthReveal" class="strength-reveal">
-You are the strength behind my smile. ❤️
+<h1>
+Manikanta
+</h1>
+
+<p class="subtitle">
+
+Some people come into our lives...
+
+<br>
+
+and quietly become our whole world.
+
+<br><br>
+
+This little world is made only for you.
+
+</p>
+
+<div class="buttons">
+
+<button
+class="next"
+onclick="nextPage()">
+
+Open My Birthday Gift ❤️
+
+</button>
+
 </div>
 
 </div>
@@ -679,40 +793,91 @@ You are the strength behind my smile. ❤️
 </section>
 
 
-<!-- QUOTE -->
+<!-- =========================
+     PAGE 2
+========================= -->
 
-<section class="quote-section">
+<section
+class="page"
+id="page2">
 
-<div class="quote">
+<div class="content">
 
-Everyone has someone who makes life a little easier.
+<div class="small">
+Happy Birthday, My Love
+</div>
+
+<div class="big-heart">
+❤️
+</div>
+
+<h2>
+Happy Birthday
+<br>
+My Manikanta
+</h2>
+
+<p class="subtitle">
+
+Today is your day.
+
+But I want you to know something...
 
 <br><br>
 
-<span>For me, that person is you.</span>
+I am grateful not only because you were born,
 
-<br><br>
+but because somehow,
+out of all the people in this world,
 
-You are my love.
-<br>
-You are my strength.
-<br>
-You are my home.
+<strong>
+you became mine.
+</strong>
+
+</p>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+Continue ❤️
+
+</button>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- LOVE LETTER -->
+<!-- =========================
+     PAGE 3
+========================= -->
 
-<section id="letter">
+<section
+class="page"
+id="page3">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">FROM YOUR BUJJI</div>
+<div class="small">
+From Your Heart
+</div>
 
-<h2>A letter I want you to keep forever</h2>
+<h2>
+A Letter For You 💌
+</h2>
 
 <div class="letter">
 
@@ -721,89 +886,79 @@ My dearest Manikanta,
 </p>
 
 <p>
-Sometimes I wonder if you truly know how much you mean to me.
+I don't know if words will ever be enough
+to explain what you mean to me.
 </p>
 
 <p>
-I know I may not always say everything perfectly.
-There are feelings inside my heart that are much bigger
-than the words I know how to say.
+You are one of the most beautiful parts
+of my life.
 </p>
 
 <p>
-But if there is one thing I want you to remember,
-it is this:
+Thank you for being there for me,
+for listening to me,
+for making me smile,
+and for being the person I can turn to
+when life feels difficult.
 </p>
 
 <p>
-<strong>
-You have been my strength in more ways than you will ever know.
-</strong>
+There are days when I feel tired,
+days when I worry,
+and days when I don't feel strong enough.
 </p>
 
 <p>
-There have been moments when I felt tired,
-confused, worried or simply not strong enough.
-And somehow, just knowing that you were beside me
-made everything feel a little less frightening.
+But somehow,
+just knowing that you are beside me
+makes everything feel a little easier.
 </p>
 
 <p>
-You don't always have to say something.
-Sometimes your presence itself is enough.
+I hope you know that your presence
+means more to me than you realize.
 </p>
 
 <p>
-Your hand in mine.
-Your voice.
-Your smile.
-The simple knowledge that I have you.
+I love you not only for the beautiful moments,
+but also for the quiet ordinary moments
+that become special simply because you are there.
 </p>
 
 <p>
-Those little things mean more to me than I can explain.
-</p>
-
-<p>
-I don't want a perfect life.
-I want a real life.
-A life where we laugh,
-where we grow,
-where we sometimes disagree,
-where we forgive,
-where we support each other,
-and where we keep choosing each other.
-</p>
-
-<p>
-If life ever becomes difficult,
-I want you to remember that you have me too.
-</p>
-
-<p>
-Just as you have been my strength,
-I want to be yours.
-</p>
-
-<p>
-I want to stand beside you on your best days,
-and hold your hand on the days when you don't feel your best.
-</p>
-
-<p>
-Happy Birthday to the man who became
-one of the most precious parts of my life.
-</p>
-
-<p>
-I love you more deeply than this little website
-could ever explain.
+Happy Birthday, my love.
 </p>
 
 <div class="signature">
+
 Forever yours,<br>
-<strong>Bujji (Nandini) ❤️</strong>
+
+<strong>
+Bujji (Nandini) ❤️
+</strong>
+
 </div>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+My Strength ❤️
+
+</button>
 
 </div>
 
@@ -812,166 +967,81 @@ Forever yours,<br>
 </section>
 
 
-<!-- 29 REASONS -->
+<!-- =========================
+     PAGE 4
+========================= -->
 
-<section id="reasons">
+<section
+class="page"
+id="page4">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">FOR YOUR SPECIAL DAY</div>
+<div class="small">
+What You Mean To Me
+</div>
 
-<h2>29 reasons I love you ❤️</h2>
+<h2>
+You Are My Strength ❤️
+</h2>
 
-<p style="color:#cdbdc7;max-width:650px;margin:auto;">
-Twenty-nine little reasons for the man who means so much to me.
+<div class="strength-box">
+
+<div class="strength-line">
+When I am afraid...
+</div>
+
+<div class="strength-line">
+I remember <strong>you.</strong>
+</div>
+
+<div class="strength-line">
+When life feels heavy...
+</div>
+
+<div class="strength-line">
+Your love makes me <strong>strong.</strong>
+</div>
+
+</div>
+
+<p
+class="subtitle"
+style="margin-top:35px;">
+
+You don't have to fix everything.
+
+Sometimes,
+just knowing that I have you
+is enough.
+
+<br><br>
+
+<strong style="color:#ffabc9;">
+You are my strength.
+You are my safe place.
+You are my home.
+</strong>
+
 </p>
 
-<div class="reason-grid">
+<div class="buttons">
 
-<div class="reason">
-<div class="reason-number">01</div>
-<p>Because you make me feel safe.</p>
-</div>
+<button
+class="previous"
+onclick="previousPage()">
 
-<div class="reason">
-<div class="reason-number">02</div>
-<p>Because I can be myself with you.</p>
-</div>
+← Previous
 
-<div class="reason">
-<div class="reason-number">03</div>
-<p>Because your presence gives me strength.</p>
-</div>
+</button>
 
-<div class="reason">
-<div class="reason-number">04</div>
-<p>Because you make ordinary days special.</p>
-</div>
+<button
+class="next"
+onclick="nextPage()">
 
-<div class="reason">
-<div class="reason-number">05</div>
-<p>Because your smile can change my whole mood.</p>
-</div>
+Our Memories 📸
 
-<div class="reason">
-<div class="reason-number">06</div>
-<p>Because you listen to me.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">07</div>
-<p>Because you make me laugh.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">08</div>
-<p>Because you stand beside me.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">09</div>
-<p>Because you believe in me.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">10</div>
-<p>Because you make me feel loved.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">11</div>
-<p>Because I trust you.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">12</div>
-<p>Because you understand me.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">13</div>
-<p>Because you are there when I need you.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">14</div>
-<p>Because your happiness matters to me.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">15</div>
-<p>Because you inspire me to be better.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">16</div>
-<p>Because you are my comfort.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">17</div>
-<p>Because I love talking to you.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">18</div>
-<p>Because silence feels comfortable with you.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">19</div>
-<p>Because you make me feel important.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">20</div>
-<p>Because you are someone I can depend on.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">21</div>
-<p>Because you are part of my happiest memories.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">22</div>
-<p>Because you make my heart smile.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">23</div>
-<p>Because you are patient with me.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">24</div>
-<p>Because you make me feel at home.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">25</div>
-<p>Because I can imagine my future with you.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">26</div>
-<p>Because your love gives me courage.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">27</div>
-<p>Because you are my favorite person.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">28</div>
-<p>Because I would choose you again.</p>
-</div>
-
-<div class="reason">
-<div class="reason-number">29</div>
-<p>Because you are simply my Manikanta. ❤️</p>
-</div>
+</button>
 
 </div>
 
@@ -980,73 +1050,53 @@ Twenty-nine little reasons for the man who means so much to me.
 </section>
 
 
-<!-- MEMORIES -->
+<!-- =========================
+     PAGE 5
+========================= -->
 
-<section id="memories">
+<section
+class="page memory-page"
+id="page5">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">OUR LITTLE MEMORIES</div>
+<div class="memory-number">
+MEMORY 01 / 04
+</div>
 
-<h2>Moments I want to keep forever</h2>
+<h2>
+A Moment With You ❤️
+</h2>
 
-<div class="photo">
+<div class="memory-photo">
 
-<img id="memoryImage" src="DSC_3515.JPG">
+<img src="DSC_3515.JPG">
 
-<div class="caption" id="caption">
+<div class="memory-caption">
+
 A moment I would happily live again.
-</div>
-
-</div>
-
-<div class="photo-nav">
-
-<button onclick="previousPhoto()">‹</button>
-<button onclick="nextPhoto()">›</button>
 
 </div>
 
 </div>
 
-</section>
+<div class="buttons">
 
+<button
+class="previous"
+onclick="previousPage()">
 
-<!-- WHEN I FEEL WEAK -->
+← Previous
 
-<section id="weak">
+</button>
 
-<div class="container">
+<button
+class="next"
+onclick="nextPage()">
 
-<div class="kicker">WHAT YOU MEAN TO ME</div>
+Next Memory →
 
-<h2>When I feel weak...</h2>
-
-<div class="weak-list">
-
-<div class="weak-item">
-When I am afraid... <span>I remember you.</span>
-</div>
-
-<div class="weak-item">
-When I am tired... <span>I lean on you.</span>
-</div>
-
-<div class="weak-item">
-When I am confused... <span>I trust you.</span>
-</div>
-
-<div class="weak-item">
-When I feel alone... <span>I think of you.</span>
-</div>
-
-<div class="weak-item">
-When life feels heavy... <span>I remember I have you.</span>
-</div>
-
-<div class="weak-item">
-And when I feel like giving up... <span>your love makes me strong.</span>
-</div>
+</button>
 
 </div>
 
@@ -1055,103 +1105,53 @@ And when I feel like giving up... <span>your love makes me strong.</span>
 </section>
 
 
-<!-- PROMISE -->
+<!-- =========================
+     PAGE 6
+========================= -->
 
-<section id="promise">
+<section
+class="page memory-page"
+id="page6">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">MY PROMISE</div>
-
-<h2>I cannot promise perfection.</h2>
-
-<p style="max-width:700px;margin:auto;color:#d6c6cf;font-size:19px;">
-But I can promise you this...
-</p>
-
-<div class="promise-box">
-
-<div class="promise-line">
-I will stand beside you.
+<div class="memory-number">
+MEMORY 02 / 04
 </div>
 
-<div class="promise-line">
-I will celebrate your happiness.
-</div>
+<h2>
+One More Memory ❤️
+</h2>
 
-<div class="promise-line">
-I will hold your hand through difficult days.
-</div>
+<div class="memory-photo">
 
-<div class="promise-line">
-I will listen when you need me.
-</div>
+<img src="DSC_3604.JPG">
 
-<div class="promise-line">
-I will support your dreams.
-</div>
+<div class="memory-caption">
 
-<div class="promise-line">
-I will keep choosing you.
-</div>
-
-<div class="promise-line">
-And I will always remember what you mean to me.
-</div>
+One more memory I want to keep forever.
 
 </div>
 
 </div>
 
-</section>
+<div class="buttons">
 
+<button
+class="previous"
+onclick="previousPage()">
 
-<!-- FUTURE -->
+← Previous
 
-<section id="future">
+</button>
 
-<div class="container">
+<button
+class="next"
+onclick="nextPage()">
 
-<div class="kicker">OUR TOMORROWS</div>
+Next Memory →
 
-<h2>The future I want</h2>
-
-<p style="color:#cdbec7;max-width:650px;margin:auto;">
-I don't know exactly what the future will look like.
-But I know who I want beside me.
-</p>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>More birthdays 🎂</h3>
-<p>More celebrations and more reasons to be grateful that you were born.</p>
-</div>
-
-<div class="timeline-item">
-<h3>More adventures ✈️</h3>
-<p>More places, more experiences and more stories that belong only to us.</p>
-</div>
-
-<div class="timeline-item">
-<h3>More ordinary days ☕</h3>
-<p>Because ordinary days with you are anything but ordinary to me.</p>
-</div>
-
-<div class="timeline-item">
-<h3>More memories 📸</h3>
-<p>More photographs, more laughter and more moments worth remembering.</p>
-</div>
-
-<div class="timeline-item">
-<h3>Growing together 🌱</h3>
-<p>Supporting each other through every version of ourselves.</p>
-</div>
-
-<div class="timeline-item">
-<h3>Growing old together ❤️</h3>
-<p>If I get to hold your hand through all of it, I will have everything I need.</p>
-</div>
+</button>
 
 </div>
 
@@ -1160,43 +1160,273 @@ But I know who I want beside me.
 </section>
 
 
-<!-- BIRTHDAY -->
+<!-- =========================
+     PAGE 7
+========================= -->
 
-<section id="birthday">
+<section
+class="page memory-page"
+id="page7">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">29 OCTOBER</div>
+<div class="memory-number">
+MEMORY 03 / 04
+</div>
 
-<h2>Happy Birthday, My Strength 🎂</h2>
+<h2>
+A Feeling Frozen In Time ❤️
+</h2>
 
-<p style="color:#d8c8d0;max-width:650px;margin:auto;">
+<div class="memory-photo">
+
+<img src="IMG_20251002_153213.jpg">
+
+<div class="memory-caption">
+
+Some photographs hold more than a picture —
+they hold a feeling.
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+Next Memory →
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 8
+========================= -->
+
+<section
+class="page memory-page"
+id="page8">
+
+<div class="content">
+
+<div class="memory-number">
+MEMORY 04 / 04
+</div>
+
+<h2>
+My Favorite Part ❤️
+</h2>
+
+<div class="memory-photo">
+
+<img src="IMG_20260907_151750.jpg">
+
+<div class="memory-caption">
+
+My favorite part of this memory
+is that you are in it.
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 9
+========================= -->
+
+<section
+class="page"
+id="page9">
+
+<div class="content">
+
+<div class="small">
+One More Thing
+</div>
+
+<div class="message">
+
+You are not just someone
+I love.
+
+<br><br>
+
+You are the person
+I want beside me
+when life is beautiful...
+
+<br><br>
+
+and when life is difficult.
+
+<br><br>
+
+<span>
+You are my person. ❤️
+</span>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+Make A Wish 🎂
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 10
+========================= -->
+
+<section
+class="page"
+id="page10">
+
+<div class="content">
+
+<div class="small">
+29 October
+</div>
+
+<h2>
+Make A Wish, Manikanta 🎂
+</h2>
+
+<p class="subtitle">
+
 Close your eyes.
-Think of one beautiful wish.
-Then make it.
+
+Think of something your heart truly wants.
+
+Then make your wish.
+
 </p>
 
 <div class="cake">
 
-<div class="cake-layer layer-bottom"></div>
-<div class="cake-layer layer-middle"></div>
-<div class="cake-layer layer-top"></div>
+<div class="layer bottom"></div>
+
+<div class="layer middle"></div>
+
+<div class="layer top"></div>
 
 <div class="candle"></div>
-<div class="flame" id="flame"></div>
+
+<div
+class="flame"
+id="flame">
+</div>
 
 </div>
 
-<button class="button" onclick="makeWish()">
-Make My Wish ✨
+<button
+class="primary"
+onclick="makeWish()">
+
+✨ Make My Wish
+
 </button>
 
-<div class="wish" id="wish">
-The candle is gone... but your wish is safe. ❤️
+<div
+class="wish-message"
+id="wishMessage">
+
+The candle is gone. ❤️
+
 <br><br>
-And my wish is simple:
+
+Your wish is safe.
+
+<br><br>
+
+And my wish is simple...
+
 <br>
-<strong>May we always have each other.</strong>
+
+<strong>
+May we always have each other.
+</strong>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+One Last Secret 🔐
+
+</button>
+
 </div>
 
 </div>
@@ -1204,21 +1434,36 @@ And my wish is simple:
 </section>
 
 
-<!-- SECRET -->
+<!-- =========================
+     PAGE 11
+========================= -->
 
-<section id="secret">
+<section
+class="page"
+id="page11">
 
-<div class="container">
+<div class="content">
 
-<div class="kicker">FOR YOUR EYES ONLY</div>
+<div class="small">
+For Your Eyes Only
+</div>
 
-<h2>A little secret from Bujji 🔐</h2>
+<h2>
+One Last Secret 🔐
+</h2>
 
-<div class="secret-lock">🔐</div>
+<div class="lock">
+🔐
+</div>
 
-<p style="color:#cdbec7;max-width:650px;margin:0 auto 35px;">
-There is one final letter hidden here.
-Use the special date.
+<p class="subtitle">
+
+There is one final message from Bujji.
+
+<br>
+
+Use the special date to open it.
+
 </p>
 
 <div class="password">
@@ -1226,19 +1471,27 @@ Use the special date.
 <input
 type="password"
 id="password"
-placeholder="Enter the date"
+placeholder="Enter date"
 maxlength="10"
 >
 
-<button class="button" onclick="unlock()">
-Unlock ❤️
+<button
+class="primary"
+onclick="unlockSecret()">
+
+Open ❤️
+
 </button>
 
 </div>
 
-<div class="secret-letter" id="secretLetter">
+<div
+class="secret"
+id="secret">
 
-<h2>My secret to you</h2>
+<h2>
+My Secret Letter
+</h2>
 
 <p>
 
@@ -1246,60 +1499,83 @@ Manikanta,
 
 <br><br>
 
-If you ever wonder how important you are to me,
-come back to this letter.
+If you ever wonder how much you mean to me,
+come back to these words.
 
 <br><br>
 
-You are one of the people who changed the way
-I understand love.
+You are the person who makes me feel safe
+when the world feels uncertain.
 
 <br><br>
 
-You taught me that love is not only about beautiful words.
-
-It is about presence.
-
-It is about standing beside someone.
-
-It is about becoming someone's strength
-when they don't have enough strength for themselves.
+You are the person I think of
+when I need strength.
 
 <br><br>
 
-And you have been that person for me.
+You are the person whose happiness
+matters deeply to me.
 
 <br><br>
 
-I hope I can be that person for you too.
+And if life ever becomes difficult,
+I want you to remember that
+you don't have to face it alone.
 
 <br><br>
 
-Whatever happens in life,
-I want you to remember one thing:
+You have your Bujji.
+
+<br><br>
+
+I will always be cheering for you,
+standing beside you,
+and loving you.
 
 <br><br>
 
 <strong>
-You will always have your Bujji.
+You are my love.
+<br>
+You are my strength.
+<br>
+You are my home.
 </strong>
 
 <br><br>
 
-Happy Birthday, my love.
-
-<br><br>
-
-I love you.
+Happy Birthday, my Manikanta.
 
 <br><br>
 
 <strong>
-Forever yours,<br>
+Forever yours,
+<br>
 Bujji (Nandini) ❤️
 </strong>
 
 </p>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="previous"
+onclick="previousPage()">
+
+← Previous
+
+</button>
+
+<button
+class="next"
+onclick="nextPage()">
+
+Final Surprise ❤️
+
+</button>
 
 </div>
 
@@ -1308,61 +1584,112 @@ Bujji (Nandini) ❤️
 </section>
 
 
-<!-- FINAL -->
+<!-- =========================
+     PAGE 12
+========================= -->
 
-<section id="final">
+<section
+class="page"
+id="page12">
 
-<div class="final">
+<div class="content">
 
-<div class="kicker">ONE LAST THING</div>
+<div class="small">
+One Last Thing
+</div>
 
-<div class="final-line" id="f1">
+<div
+class="final-line"
+id="f1">
+
 Manikanta...
+
 </div>
 
-<div class="final-line" id="f2">
-You are not just the man I love.
+<div
+class="final-line"
+id="f2">
+
+Thank you for being my husband.
+
 </div>
 
-<div class="final-line" id="f3">
-You are the strength behind me.
+<div
+class="final-line"
+id="f3">
+
+Thank you for being my strength.
+
 </div>
 
-<div class="final-line" id="f4">
-You are the person I want beside me
-when life is beautiful...
+<div
+class="final-line"
+id="f4">
+
+Thank you for being my home.
+
 </div>
 
-<div class="final-line" id="f5">
-and when life is difficult.
+<div
+class="final-line"
+id="f5">
+
+Thank you for being my person.
+
 </div>
 
-<div class="final-line" id="f6">
-You are my safe place.
+<div
+class="final-line"
+id="f6">
+
+When I need courage,
+I think of you.
+
 </div>
 
-<div class="final-line" id="f7">
-You are my home.
+<div
+class="final-line"
+id="f7">
+
+When life feels heavy,
+I remember that I have you.
+
 </div>
 
-<div class="final-line" id="f8">
+<div
+class="final-line"
+id="f8">
+
 And if I had to choose again...
+
 </div>
 
-<div class="final-line" id="f9">
-I would still choose you.
+<div
+class="final-line forever"
+id="f9">
+
+I WOULD STILL CHOOSE YOU. ❤️
+
 </div>
 
-<div class="final-line forever" id="f10">
-Forever ❤️
-</div>
+<div
+class="final-line"
+id="f10">
 
-<div class="final-line" id="f11">
 Happy Birthday, my love.
+
 </div>
 
-<div class="final-line" id="f12">
-— Your Bujji (Nandini)
+<div
+class="final-line"
+id="f11">
+
+Forever yours,
+
+<br>
+
+Bujji (Nandini) ❤️
+
 </div>
 
 </div>
@@ -1372,41 +1699,121 @@ Happy Birthday, my love.
 
 <script>
 
-/* INTRO */
+/* =========================
+   PAGE CONTROL
+========================= */
 
-function enterLove(){
+let currentPage=1;
 
-    const intro=document.getElementById("intro");
+const totalPages=12;
 
-    intro.style.opacity="0";
+
+function showPage(number){
+
+    if(number<1 || number>totalPages){
+        return;
+    }
+
+    const oldPage=
+        document.getElementById(
+            "page"+currentPage
+        );
+
+    const newPage=
+        document.getElementById(
+            "page"+number
+        );
+
+    oldPage.classList.remove("active");
 
     setTimeout(()=>{
-        intro.style.display="none";
-    },1500);
 
-    const music=document.getElementById("music");
+        newPage.classList.add("active");
 
-    music.play().catch(()=>{});
+    },50);
+
+    currentPage=number;
+
+    document.getElementById("progress")
+        .innerText=
+        currentPage+" / "+totalPages;
+
+    window.scrollTo(0,0);
+
+    if(currentPage===12){
+
+        startFinal();
+
+    }
 
 }
 
 
-/* MUSIC */
+function nextPage(){
 
-let playing=false;
+    if(currentPage<totalPages){
+
+        showPage(currentPage+1);
+
+    }
+
+}
+
+
+function previousPage(){
+
+    if(currentPage>1){
+
+        showPage(currentPage-1);
+
+    }
+
+}
+
+
+/* =========================
+   KEYBOARD NAVIGATION
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="ArrowRight"){
+            nextPage();
+        }
+
+        if(event.key==="ArrowLeft"){
+            previousPage();
+        }
+
+    }
+);
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let musicPlaying=false;
+
 
 function toggleMusic(){
 
-    const music=document.getElementById("music");
-    const button=document.getElementById("musicButton");
+    const music=
+        document.getElementById("music");
 
-    if(playing){
+    const button=
+        document.getElementById("musicButton");
+
+
+    if(musicPlaying){
 
         music.pause();
 
         button.innerHTML="🎵";
 
-        playing=false;
+        musicPlaying=false;
 
     }else{
 
@@ -1414,153 +1821,135 @@ function toggleMusic(){
 
         button.innerHTML="⏸️";
 
-        playing=true;
+        musicPlaying=true;
 
     }
 
 }
 
 
-/* HEARTBEAT MESSAGE */
+/* =========================
+   START MUSIC AFTER FIRST CLICK
+========================= */
 
-function strengthReveal(){
+document.querySelectorAll(".next")
+.forEach(button=>{
 
-    document.getElementById("strengthReveal")
-    .style.display="block";
+    button.addEventListener(
+        "click",
+        function(){
 
-    hearts(20);
+            const music=
+                document.getElementById("music");
 
-}
+            music.play().then(()=>{
 
+                musicPlaying=true;
 
-/* PHOTOS */
+                document.getElementById(
+                    "musicButton"
+                ).innerHTML="⏸️";
 
-const photos=[
-    {
-        image:"DSC_3515.JPG",
-        text:"A moment I would happily live again. ❤️"
-    },
-    {
-        image:"DSC_3604.JPG",
-        text:"One memory I want to keep close to my heart."
-    },
-    {
-        image:"IMG_20251002_153213.jpg",
-        text:"Some photographs hold more than pictures — they hold feelings."
-    },
-    {
-        image:"IMG_20260907_151750.jpg",
-        text:"My favorite part of this memory is that you are in it."
-    }
-];
+            }).catch(()=>{});
 
-let current=0;
+        }
+    );
 
-function showPhoto(){
-
-    document.getElementById("memoryImage").src=
-        photos[current].image;
-
-    document.getElementById("caption").innerText=
-        photos[current].text;
-
-}
-
-function nextPhoto(){
-
-    current++;
-
-    if(current>=photos.length){
-        current=0;
-    }
-
-    showPhoto();
-
-}
-
-function previousPhoto(){
-
-    current--;
-
-    if(current<0){
-        current=photos.length-1;
-    }
-
-    showPhoto();
-
-}
+});
 
 
-/* CAKE */
+/* =========================
+   BIRTHDAY WISH
+========================= */
 
 function makeWish(){
 
     document.getElementById("flame")
-    .style.display="none";
+        .style.display="none";
 
-    document.getElementById("wish")
-    .style.display="block";
+    document.getElementById("wishMessage")
+        .style.display="block";
 
-    hearts(40);
+    createHearts(30);
 
 }
 
 
-/* SECRET */
+/* =========================
+   SECRET
+========================= */
 
-function unlock(){
+function unlockSecret(){
 
     const password=
         document.getElementById("password").value;
 
     if(password==="2910"){
 
-        document.getElementById("secretLetter")
-        .style.display="block";
+        document.getElementById("secret")
+            .style.display="block";
 
-        hearts(35);
-
-        document.getElementById("secretLetter")
-        .scrollIntoView({behavior:"smooth"});
+        createHearts(30);
 
     }else{
 
-        alert("Think of the special date ❤️");
+        alert(
+            "Think of the special date ❤️"
+        );
 
     }
 
 }
 
 
-/* HEARTS */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-function hearts(amount){
+function createHearts(amount){
 
     for(let i=0;i<amount;i++){
 
         setTimeout(()=>{
 
-            const h=document.createElement("div");
+            const heart=
+                document.createElement("div");
 
-            h.className="heart";
+            heart.className=
+                "floating-heart";
 
-            h.innerHTML=
-                ["❤️","💕","💖","💗","💓"]
-                [Math.floor(Math.random()*5)];
+            heart.innerHTML=
+                [
+                    "❤️",
+                    "💕",
+                    "💖",
+                    "💗",
+                    "💓"
+                ][
+                    Math.floor(
+                        Math.random()*5
+                    )
+                ];
 
-            h.style.left=
+            heart.style.left=
                 Math.random()*100+"vw";
 
-            h.style.fontSize=
-                (15+Math.random()*25)+"px";
+            heart.style.fontSize=
+                (16+
+                Math.random()*25)+"px";
 
-            h.style.animationDuration=
-                (3+Math.random()*3)+"s";
+            heart.style.animationDuration=
+                (3+
+                Math.random()*3)+"s";
 
-            document.body.appendChild(h);
+            document.body.appendChild(
+                heart
+            );
 
             setTimeout(()=>{
-                h.remove();
+
+                heart.remove();
+
             },7000);
 
         },i*80);
@@ -1570,89 +1959,57 @@ function hearts(amount){
 }
 
 
-/* WEAK SECTION */
+/* =========================
+   FINAL ANIMATION
+========================= */
 
-const weakItems=
-document.querySelectorAll(".weak-item");
-
-const weakObserver=
-new IntersectionObserver((entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            weakItems.forEach((item,index)=>{
-
-                setTimeout(()=>{
-                    item.classList.add("visible");
-                },index*600);
-
-            });
-
-        }
-
-    });
-
-},{threshold:.2});
-
-weakObserver.observe(document.getElementById("weak"));
+let finalStarted=false;
 
 
-/* FINAL ANIMATION */
+function startFinal(){
 
-let finalPlayed=false;
+    if(finalStarted){
+        return;
+    }
 
-const finalObserver=
-new IntersectionObserver((entries)=>{
+    finalStarted=true;
 
-    entries.forEach(entry=>{
+    const lines=[
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+    ];
 
-        if(entry.isIntersecting && !finalPlayed){
+    lines.forEach(
+        (id,index)=>{
 
-            finalPlayed=true;
+            setTimeout(()=>{
 
-            const lines=[
-                "f1","f2","f3","f4","f5","f6",
-                "f7","f8","f9","f10","f11","f12"
-            ];
-
-            lines.forEach((id,index)=>{
-
-                setTimeout(()=>{
-
-                    document
+                document
                     .getElementById(id)
                     .classList.add("show");
 
-                },index*1100);
-
-            });
-
-            setTimeout(()=>{
-                hearts(100);
-            },9000);
+            },index*1000);
 
         }
-
-    });
-
-},{threshold:.25});
-
-finalObserver.observe(document.getElementById("final"));
+    );
 
 
-/* PERIODIC HEARTS */
+    setTimeout(()=>{
 
-setInterval(()=>{
+        createHearts(100);
 
-    if(Math.random()>.65){
+    },8500);
 
-        hearts(1);
-
-    }
-
-},3000);
+}
 
 </script>
 
