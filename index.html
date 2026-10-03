@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -34,50 +33,51 @@ body{
     position:fixed;
     inset:0;
     z-index:9999;
-    background:
-    radial-gradient(circle at center,#55152d,#13060c 55%,#030303);
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
-    transition:1.2s ease;
+    background:
+    radial-gradient(circle at center,#651832,#16070e 55%,#020202);
+    transition:1.3s ease;
 }
 
 .opening-content{
+    max-width:800px;
     padding:30px;
 }
 
-.opening-content .small{
-    letter-spacing:5px;
-    color:#ffabc5;
+.opening-small{
+    color:#ffb5c9;
+    letter-spacing:6px;
     text-transform:uppercase;
+    font-size:14px;
     margin-bottom:25px;
 }
 
 .opening-content h1{
-    font-size:clamp(40px,8vw,85px);
-    margin-bottom:20px;
-    text-shadow:0 0 30px #ff3975;
+    font-size:clamp(48px,9vw,95px);
+    color:white;
+    text-shadow:0 0 35px #ff3975;
+    margin-bottom:25px;
 }
 
 .opening-content p{
+    font-size:20px;
+    line-height:1.9;
     color:#ddd;
-    font-size:19px;
-    line-height:1.8;
-    max-width:650px;
-    margin:auto;
 }
 
 .open-btn{
     margin-top:35px;
-    padding:17px 35px;
-    border:none;
+    padding:17px 38px;
+    border:0;
     border-radius:50px;
-    background:linear-gradient(45deg,#ff326c,#ff85a8);
+    background:linear-gradient(45deg,#ff326c,#ff86aa);
     color:white;
     font-size:18px;
     cursor:pointer;
-    box-shadow:0 0 30px #ff326c;
+    box-shadow:0 0 30px rgba(255,50,110,.7);
     transition:.3s;
 }
 
@@ -86,7 +86,7 @@ body{
 }
 
 /* =========================
-   COMMON
+   GENERAL
 ========================= */
 
 section{
@@ -102,10 +102,11 @@ section{
 }
 
 .subtitle{
-    max-width:700px;
+    max-width:750px;
     margin:auto;
     color:#bbb;
-    line-height:1.8;
+    line-height:1.9;
+    font-size:17px;
 }
 
 /* =========================
@@ -115,18 +116,19 @@ section{
 .hero{
     min-height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
-    background:
-    radial-gradient(circle at top,#60182f,#190811 45%,#030303);
+    justify-content:center;
+    text-align:center;
     position:relative;
     overflow:hidden;
+    background:
+    radial-gradient(circle at top,#651832,#190811 45%,#030303);
 }
 
 .hero-content{
+    max-width:950px;
     position:relative;
     z-index:2;
-    max-width:900px;
 }
 
 .hero-small{
@@ -137,26 +139,28 @@ section{
 }
 
 .hero h1{
-    font-size:clamp(48px,9vw,100px);
+    font-size:clamp(50px,9vw,105px);
     line-height:1.05;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
 .hero h1 span{
     color:#ff5d91;
-    text-shadow:0 0 35px #ff2e70;
+    text-shadow:0 0 35px #ff3975;
 }
 
 .hero p{
-    color:#ddd;
+    max-width:750px;
+    margin:auto;
     font-size:20px;
-    line-height:1.8;
+    line-height:1.9;
+    color:#ddd;
 }
 
 .scroll-btn{
     display:inline-block;
     margin-top:35px;
-    padding:15px 30px;
+    padding:15px 32px;
     border-radius:50px;
     background:#ff4f81;
     color:white;
@@ -170,16 +174,16 @@ section{
 
 .heart{
     position:fixed;
-    bottom:-40px;
+    bottom:-50px;
     z-index:3;
     pointer-events:none;
-    animation:floatHeart 8s linear infinite;
+    animation:floatHeart 9s linear infinite;
 }
 
 @keyframes floatHeart{
 
     0%{
-        transform:translateY(0) rotate(0);
+        transform:translateY(0) rotate(0deg);
         opacity:0;
     }
 
@@ -191,6 +195,7 @@ section{
         transform:translateY(-110vh) rotate(360deg);
         opacity:0;
     }
+
 }
 
 /* =========================
@@ -210,9 +215,9 @@ section{
 }
 
 .time{
-    width:120px;
+    width:125px;
     padding:25px 10px;
-    border-radius:20px;
+    border-radius:22px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,100,150,.3);
     box-shadow:0 0 25px rgba(255,50,120,.08);
@@ -229,16 +234,16 @@ section{
 }
 
 /* =========================
-   LETTER
+   LOVE LETTER
 ========================= */
 
 .letter-section{
-    background:linear-gradient(#080808,#180911);
+    background:linear-gradient(#080808,#190911);
 }
 
 .letter{
-    max-width:800px;
-    margin:40px auto;
+    max-width:850px;
+    margin:45px auto 0;
     padding:45px;
     background:rgba(255,255,255,.045);
     border:1px solid rgba(255,100,150,.25);
@@ -247,6 +252,10 @@ section{
     font-size:18px;
     text-align:left;
     box-shadow:0 0 40px rgba(255,50,120,.08);
+}
+
+.letter strong{
+    color:#ff8eae;
 }
 
 /* =========================
@@ -262,7 +271,7 @@ section{
 }
 
 .photo{
-    height:330px;
+    height:340px;
     border-radius:22px;
     overflow:hidden;
     border:1px solid rgba(255,100,150,.25);
@@ -292,8 +301,8 @@ section{
 }
 
 .story-item{
-    padding:25px 30px;
-    margin:20px 0;
+    padding:28px 30px;
+    margin:22px 0;
     border-left:3px solid #ff5d91;
     background:rgba(255,255,255,.04);
     border-radius:0 18px 18px 0;
@@ -301,12 +310,13 @@ section{
 
 .story-item h3{
     color:#ff719b;
-    margin-bottom:10px;
+    font-size:23px;
+    margin-bottom:12px;
 }
 
 .story-item p{
     color:#ccc;
-    line-height:1.8;
+    line-height:1.9;
 }
 
 /* =========================
@@ -314,15 +324,15 @@ section{
 ========================= */
 
 .reasons{
-    max-width:1000px;
+    max-width:1050px;
     margin:45px auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
 
 .reason{
-    padding:35px 20px;
+    padding:35px 22px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,100,150,.2);
     border-radius:20px;
@@ -341,7 +351,7 @@ section{
 
 .reason h3{
     color:#ff719b;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 /* =========================
@@ -353,9 +363,9 @@ section{
 }
 
 .music-player{
-    max-width:550px;
+    max-width:600px;
     margin:40px auto;
-    padding:30px;
+    padding:35px;
     border-radius:25px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,100,150,.25);
@@ -371,6 +381,12 @@ section{
     50%{
         transform:scale(1.12);
     }
+
+}
+
+.music-player h3{
+    margin:15px 0;
+    color:#ff9db8;
 }
 
 .music-player audio{
@@ -407,12 +423,13 @@ section{
 .wish-message{
     display:none;
     margin:30px auto;
-    font-size:25px;
+    font-size:23px;
     color:#ff9db8;
+    line-height:1.8;
 }
 
 /* =========================
-   SECRET
+   SECRET MESSAGE
 ========================= */
 
 .secret-section{
@@ -420,16 +437,17 @@ section{
 }
 
 .secret-box{
-    max-width:550px;
+    max-width:600px;
     margin:40px auto;
-    padding:35px;
+    padding:40px;
     background:rgba(255,255,255,.04);
     border-radius:25px;
+    border:1px solid rgba(255,100,150,.2);
 }
 
 .secret-box input{
     width:100%;
-    padding:15px;
+    padding:16px;
     margin:20px 0;
     border:none;
     border-radius:30px;
@@ -440,9 +458,10 @@ section{
 .secret-message{
     display:none;
     margin-top:25px;
-    padding:25px;
+    padding:30px;
     color:#ffb1c7;
-    line-height:1.8;
+    line-height:2;
+    font-size:17px;
 }
 
 /* =========================
@@ -450,23 +469,23 @@ section{
 ========================= */
 
 .final{
-    min-height:90vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
     background:
-    radial-gradient(circle,#51142d,#090909 65%);
+    radial-gradient(circle,#57152f,#090909 65%);
 }
 
 .final h2{
-    font-size:clamp(45px,8vw,85px);
+    font-size:clamp(45px,8vw,90px);
     color:#ff6797;
     text-shadow:0 0 30px #ff3975;
 }
 
 .final p{
-    max-width:700px;
+    max-width:780px;
     margin:30px auto;
     font-size:20px;
     line-height:2;
@@ -475,7 +494,7 @@ section{
 
 .signature{
     color:#ff9db9;
-    font-size:27px;
+    font-size:28px;
     font-style:italic;
 }
 
@@ -498,10 +517,11 @@ section{
         transform:translateY(110vh) rotate(720deg);
         opacity:0;
     }
+
 }
 
 /* =========================
-   MUSIC BUTTON
+   MUSIC FLOATING BUTTON
 ========================= */
 
 .music-button{
@@ -556,29 +576,43 @@ section{
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =========================
-     OPENING
-========================= -->
+<!-- =================================
+     OPENING SURPRISE
+================================= -->
 
 <div id="opening">
 
     <div class="opening-content">
 
-        <div class="small">
+        <div class="opening-small">
             A Little Surprise ❤️
         </div>
 
         <h1>
-            For Manikanta
+            For My Manikanta
         </h1>
 
         <p>
-            Someone very special deserves
-            something very special...
+            Before you open this little surprise,
+            I want you to know something...
+
+            <br><br>
+
+            You are not just my husband.
+            You are my favorite person,
+            my comfort, my happiness,
+            and the person with whom I want
+            to share every beautiful chapter of my life.
+
+            <br><br>
+
+            I may not always find the perfect words
+            to express how much you mean to me,
+            so I created this little world
+            filled with my love, just for you.
         </p>
 
         <button class="open-btn" onclick="openSurprise()">
@@ -601,9 +635,9 @@ section{
 <div class="heart" style="left:94%;animation-delay:2s;">💖</div>
 
 
-<!-- =========================
+<!-- =================================
      HERO
-========================= -->
+================================= -->
 
 <section class="hero">
 
@@ -615,12 +649,18 @@ section{
 
         <h1>
             Happy Birthday<br>
-            <span>Manikanta</span>
+            <span>My Manikanta</span>
         </h1>
 
         <p>
-            To the person who makes my world
-            a little brighter, happier and more beautiful.
+            If I could give you one thing in life,
+            I would give you the ability to see yourself
+            through my eyes.
+
+            <br><br>
+
+            Only then would you understand
+            how precious you are to me.
         </p>
 
         <a href="#letter" class="scroll-btn">
@@ -632,18 +672,26 @@ section{
 </section>
 
 
-<!-- =========================
+<!-- =================================
      COUNTDOWN
-========================= -->
+================================= -->
 
 <section class="countdown-section">
 
     <h2 class="title">
-        🎂 Counting Down To Your Birthday
+        🎂 Your Special Day
     </h2>
 
     <p class="subtitle">
-        The day the world was blessed with someone very special.
+
+        29 October —
+        the day my favorite person was born.
+
+        <br><br>
+
+        Counting down to another beautiful year
+        of your life.
+
     </p>
 
     <div class="countdown">
@@ -673,70 +721,148 @@ section{
 </section>
 
 
-<!-- =========================
-     LETTER
-========================= -->
+<!-- =================================
+     LOVE LETTER
+================================= -->
 
 <section class="letter-section" id="letter">
 
     <h2 class="title">
-        💌 A Letter For You
+        💌 To My Dearest Manikanta
     </h2>
 
     <div class="letter">
 
-        <p>My Dear Manikanta,</p>
-
-        <br>
-
         <p>
-            Today is a very special day because it is
-            the day you came into this world.
+            My love,
         </p>
 
         <br>
 
         <p>
-            I want you to know how much you mean to me.
-            Every smile, every conversation, every memory
-            and every little moment we share is precious to me.
+            Sometimes I wonder how to explain what
+            you mean to me, because even a thousand
+            words would never be enough.
         </p>
 
         <br>
 
         <p>
-            Life becomes more beautiful when we have someone
-            special beside us, and I am grateful for all the
-            beautiful memories we have created together.
+            Before you became my husband,
+            I never knew how beautiful it could feel
+            to have someone to share my everyday life with.
         </p>
 
         <br>
 
         <p>
-            On your birthday, I wish you happiness,
-            success, good health and the courage to achieve
-            everything you dream about.
+            Now, even the smallest moments feel special
+            because you are part of them.
         </p>
 
         <br>
 
         <p>
-            May the coming years bring you countless reasons
-            to smile and many beautiful moments to remember.
+            You are the person I want to tell everything to,
+            whether it is something wonderful,
+            something silly, or something that made my day difficult.
         </p>
 
         <br>
 
         <p>
-            Happy Birthday, Manikanta. ❤️
+            I love our laughter, our conversations,
+            our little arguments, and even the ordinary days
+            when we do nothing special.
         </p>
 
         <br>
 
         <p>
-            With all my love,
+            Because when I am with you,
+            even ordinary moments become memories
+            worth keeping forever.
+        </p>
+
+        <br>
+
+        <p>
+            I know our life will not always be perfect.
+            There will be difficult days, misunderstandings,
+            and challenges.
+        </p>
+
+        <br>
+
+        <p>
+            But I want you to know that I will always
+            choose to work through them with you.
+        </p>
+
+        <br>
+
+        <p>
+            I want to celebrate your achievements,
+            encourage you when things are difficult,
+            hold your hand when you need strength,
+            and remind you of how much you are loved.
+        </p>
+
+        <br>
+
+        <p>
+            On your birthday, I don't just wish you
+            happiness for today.
+        </p>
+
+        <br>
+
+        <p>
+            I wish you a lifetime of good health,
+            peace, success, beautiful experiences,
+            and dreams coming true.
+        </p>
+
+        <br>
+
+        <p>
+            I want to grow older with you,
+            laugh at our old photographs,
+            remember our younger days,
+            and look back at a life filled with love.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>
+            If I had to choose my life partner all over again,
+            I would still choose you, Manikanta.
+            A thousand times, in a thousand different lifetimes.
+            </strong>
+        </p>
+
+        <br>
+
+        <p>
+            Happy Birthday, my love.
+            Thank you for being my husband
+            and for sharing this beautiful journey with me.
+        </p>
+
+        <br>
+
+        <p>
+            I love you, today, tomorrow,
+            and for all the days that follow. ❤️
+        </p>
+
+        <br>
+
+        <p>
+            Forever yours,
             <br>
-            <strong>Nandini ❤️</strong>
+            <strong>Bujji (Nandini) ❤️</strong>
         </p>
 
     </div>
@@ -744,9 +870,9 @@ section{
 </section>
 
 
-<!-- =========================
-     PHOTO GALLERY
-========================= -->
+<!-- =================================
+     MEMORIES
+================================= -->
 
 <section>
 
@@ -755,35 +881,64 @@ section{
     </h2>
 
     <p class="subtitle">
-        Every photograph holds a little piece of our story.
+
+        These are not just photographs.
+
+        <br>
+
+        They are little pieces of our journey,
+        little pieces of our happiness,
+        and little pieces of my heart.
+
     </p>
 
     <div class="gallery">
 
         <div class="photo">
-            <img src="DSC_3515.JPG" alt="Our Memory">
+            <img src="DSC_3515.JPG" alt="Our Beautiful Memory">
         </div>
 
         <div class="photo">
-            <img src="DSC_3604.JPG" alt="Our Memory">
+            <img src="DSC_3604.JPG" alt="Our Beautiful Memory">
         </div>
 
         <div class="photo">
-            <img src="IMG_20251002_153213.jpg" alt="Our Memory">
+            <img src="IMG_20251002_153213.jpg" alt="Our Beautiful Memory">
         </div>
 
         <div class="photo">
-            <img src="IMG_20260907_151750.jpg" alt="Our Memory">
+            <img src="IMG_20260907_151750.jpg" alt="Our Beautiful Memory">
         </div>
 
     </div>
 
+    <p class="subtitle">
+
+        One day, when our hair turns grey
+        and our faces have a few more wrinkles,
+        I want us to look at these photographs
+        and smile.
+
+        <br><br>
+
+        I want us to remember how beautifully
+        we lived, laughed and loved.
+
+        <br><br>
+
+        <strong>
+        My favorite photographs will always
+        be the ones with you. ❤️
+        </strong>
+
+    </p>
+
 </section>
 
 
-<!-- =========================
+<!-- =================================
      OUR STORY
-========================= -->
+================================= -->
 
 <section>
 
@@ -792,19 +947,36 @@ section{
     </h2>
 
     <p class="subtitle">
+
         Some stories are written in books.
+
+        <br>
+
         Ours is written in memories.
+
     </p>
+
 
     <div class="story">
 
+
         <div class="story-item">
 
-            <h3>❤️ The Beginning</h3>
+            <h3>
+                ❤️ The Beginning
+            </h3>
 
             <p>
-                This is where our beautiful journey began.
-                A simple moment that became a precious memory.
+
+                Every beautiful love story has a beginning,
+                and ours will always have a special place
+                in my heart.
+
+                <br><br>
+
+                Little did I know that you would become
+                such an important part of my life.
+
             </p>
 
         </div>
@@ -812,11 +984,20 @@ section{
 
         <div class="story-item">
 
-            <h3>🥰 Beautiful Memories</h3>
+            <h3>
+                🥰 Falling In Love
+            </h3>
 
             <p>
-                Every conversation, every smile and every
-                moment together became part of our story.
+
+                Somewhere between our conversations,
+                our laughter and our little moments together,
+                you became my favorite person.
+
+                <br><br>
+
+                My happiness slowly became connected to yours.
+
             </p>
 
         </div>
@@ -824,11 +1005,21 @@ section{
 
         <div class="story-item">
 
-            <h3>💕 Growing Together</h3>
+            <h3>
+                💍 Becoming Husband & Wife
+            </h3>
 
             <p>
-                Through every moment, we continue to create
-                memories that we will cherish forever.
+
+                The day we became husband and wife marked
+                the beginning of a new chapter.
+
+                <br><br>
+
+                A chapter filled with shared dreams,
+                responsibilities, beautiful memories,
+                and a promise to face life together.
+
             </p>
 
         </div>
@@ -836,40 +1027,92 @@ section{
 
         <div class="story-item">
 
-            <h3>❤️ Today</h3>
+            <h3>
+                💕 Our Life Together
+            </h3>
 
             <p>
-                And today, I get to celebrate the birthday
-                of someone who means so much to me.
+
+                We may not have a perfect love story,
+                but it is ours.
+
+                <br><br>
+
+                Every happy moment, every challenge,
+                every misunderstanding and every
+                reconciliation has become part of our journey.
+
             </p>
 
         </div>
+
+
+        <div class="story-item">
+
+            <h3>
+                ♾️ Our Forever
+            </h3>
+
+            <p>
+
+                I don't know exactly what the future holds,
+                but I know what I want.
+
+                <br><br>
+
+                More birthdays.
+                More memories.
+                More adventures.
+
+                <br><br>
+
+                And many more years of growing old with you.
+
+                <br><br>
+
+                <strong>
+                You are my favorite chapter, Manikanta,
+                and I never want our story to end. ❤️
+                </strong>
+
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      REASONS
-========================= -->
+================================= -->
 
 <section>
 
     <h2 class="title">
-        ❤️ Reasons You Are Special
+        ❤️ A Few Of The Million Reasons I Love You
     </h2>
+
 
     <div class="reasons">
 
+
         <div class="reason">
 
-            <div class="emoji">😊</div>
+            <div class="emoji">
+                😊
+            </div>
 
-            <h3>Your Smile</h3>
+            <h3>
+                Your Smile
+            </h3>
 
             <p>
-                Your smile can make an ordinary moment beautiful.
+                Because even on my most difficult days,
+                seeing you smile can make my world
+                feel a little brighter.
             </p>
 
         </div>
@@ -877,12 +1120,18 @@ section{
 
         <div class="reason">
 
-            <div class="emoji">❤️</div>
+            <div class="emoji">
+                🤗
+            </div>
 
-            <h3>Your Heart</h3>
+            <h3>
+                Your Presence
+            </h3>
 
             <p>
-                Your kindness and the way you care make you special.
+                Sometimes I don't need advice,
+                answers or solutions.
+                I just need you beside me.
             </p>
 
         </div>
@@ -890,12 +1139,17 @@ section{
 
         <div class="reason">
 
-            <div class="emoji">🥰</div>
+            <div class="emoji">
+                ❤️
+            </div>
 
-            <h3>Your Presence</h3>
+            <h3>
+                Your Love
+            </h3>
 
             <p>
-                Everything feels a little better when you are around.
+                Being loved by you is one of
+                the most precious parts of my life.
             </p>
 
         </div>
@@ -903,24 +1157,83 @@ section{
 
         <div class="reason">
 
-            <div class="emoji">💕</div>
+            <div class="emoji">
+                🥰
+            </div>
 
-            <h3>Our Memories</h3>
+            <h3>
+                Our Little Moments
+            </h3>
 
             <p>
-                The moments we share are memories I will always treasure.
+                Our random conversations,
+                silly jokes, teasing and all
+                the little things that make us,
+                us.
             </p>
 
         </div>
+
+
+        <div class="reason">
+
+            <div class="emoji">
+                💍
+            </div>
+
+            <h3>
+                Being Your Wife
+            </h3>
+
+            <p>
+                Among all the roles I have in life,
+                being your wife is one I will
+                always cherish.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="emoji">
+                ♾️
+            </div>
+
+            <h3>
+                Our Future
+            </h3>
+
+            <p>
+                I look forward to the life we are
+                building together and all the
+                memories still waiting for us.
+            </p>
+
+        </div>
+
 
     </div>
+
+
+    <p class="subtitle">
+
+        I don't love you because you are perfect.
+
+        <br><br>
+
+        <strong>
+        I love you because you are you, Manikanta. ❤️
+        </strong>
+
+    </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      MUSIC
-========================= -->
+================================= -->
 
 <section class="music-section">
 
@@ -929,8 +1242,18 @@ section{
     </h2>
 
     <p class="subtitle">
-        Press play and enjoy your special song. ❤️
+
+        Press play and enjoy your special song.
+
+        <br><br>
+
+        Close your eyes for a moment,
+        listen to the music,
+        and remember that someone loves you
+        more than words can say.
+
     </p>
+
 
     <div class="music-player">
 
@@ -939,7 +1262,7 @@ section{
         </div>
 
         <h3>
-            Happy Birthday, Manikanta
+            Happy Birthday, My Manikanta ❤️
         </h3>
 
         <audio id="music" controls loop>
@@ -955,94 +1278,198 @@ section{
 </section>
 
 
-<!-- =========================
-     CAKE
-========================= -->
+<!-- =================================
+     MAKE A WISH
+================================= -->
 
 <section class="cake-section">
 
     <h2 class="title">
-        🎂 Make A Wish
+        🎂 Close Your Eyes, My Love
     </h2>
 
     <p class="subtitle">
-        Close your eyes, make a wish and click the button. ❤️
+
+        Before you make your birthday wish,
+        I want to make one for you.
+
+        <br><br>
+
+        I wish that every dream you carry
+        in your heart finds its way into reality.
+
+        <br><br>
+
+        I wish that you never lose your beautiful smile,
+        that your heart always finds peace,
+        and that life gives you countless reasons
+        to be happy.
+
+        <br><br>
+
+        And I have one little wish for myself too...
+
+        <br><br>
+
+        <strong>
+        I wish to be beside you for every birthday,
+        every achievement, every new beginning,
+        and every beautiful moment of our lives. ❤️
+        </strong>
+
     </p>
+
 
     <div class="cake">
         🎂
     </div>
 
+
     <button class="wish-btn" onclick="makeWish()">
+
         ✨ Make A Wish
+
     </button>
+
 
     <div class="wish-message" id="wishMessage">
 
-        🎉 Your wish has been sent to the universe! ❤️
+        🎉 Your wish has been sent to the universe!
+
         <br><br>
+
         May all your dreams come true.
+
+        <br><br>
+
+        And may I be beside you
+        for every beautiful one of them. ❤️
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      SECRET MESSAGE
-========================= -->
+================================= -->
 
 <section class="secret-section">
 
     <h2 class="title">
-        🔐 One Secret Message
+        🔐 Shhh... This Is Just Between Us
     </h2>
 
     <p class="subtitle">
-        There is something here only you can open...
+
+        There is something here
+        only you can open...
+
+        <br><br>
+
+        Enter the special date ❤️
+
     </p>
+
 
     <div class="secret-box">
 
         <h3>
-            Enter the secret password ❤️
+            Enter the secret password
         </h3>
+
 
         <input
         type="password"
         id="password"
         placeholder="Enter password">
 
+
         <button
         class="secret-btn"
         onclick="openSecret()">
 
-            🔓 Open Secret Message
+            🔓 Open My Secret Message
 
         </button>
+
 
         <div
         class="secret-message"
         id="secretMessage">
 
-            ❤️ Manikanta, you are one of the most
-            precious parts of my life.
+            <p>
 
-            <br><br>
+                My dear Manikanta,
 
-            No matter how many birthdays come and go,
-            I hope we continue making beautiful memories
-            together.
+                <br><br>
 
-            <br><br>
+                There is something I want you to remember,
+                not just on your birthday,
+                but every single day.
 
-            Happy Birthday, my love. ❤️
+                <br><br>
 
-            <br><br>
+                You don't have to be perfect for me.
+                You don't have to have all the answers
+                or be strong every moment.
 
-            Forever with love,
-            <br>
-            <strong>Nandini</strong>
+                <br><br>
+
+                On your difficult days,
+                I want to be your comfort.
+
+                <br><br>
+
+                On your happiest days,
+                I want to be the person celebrating beside you.
+
+                <br><br>
+
+                Even when I am angry with you,
+                even when we disagree,
+                and even when I don't express my feelings perfectly,
+                please remember that you have a very special
+                place in my heart.
+
+                <br><br>
+
+                I may tease you, argue with you,
+                and sometimes annoy you...
+
+                <br><br>
+
+                But I never want you to doubt
+                how deeply I love you.
+
+                <br><br>
+
+                <strong>
+                You are my Manikanta,
+                and I am your Bujji.
+                </strong>
+
+                <br><br>
+
+                No matter how old we grow,
+                I hope we never stop being
+                each other's favorite person.
+
+                <br><br>
+
+                Happy Birthday, my love. 💋❤️
+
+                <br><br>
+
+                Forever with love,
+
+                <br>
+
+                <strong>
+                Bujji (Nandini) ❤️
+                </strong>
+
+            </p>
 
         </div>
 
@@ -1051,9 +1478,9 @@ section{
 </section>
 
 
-<!-- =========================
+<!-- =================================
      FINAL SURPRISE
-========================= -->
+================================= -->
 
 <section class="final">
 
@@ -1061,36 +1488,84 @@ section{
         🎉 Happy Birthday!
     </h2>
 
+
     <p>
+
+        <strong>
         Manikanta ❤️
-        <br><br>
-
-        May your life always be filled with happiness,
-        love, success and beautiful moments.
+        </strong>
 
         <br><br>
 
-        And may we continue creating
-        many more memories together.
+        If you have reached the end of this
+        little surprise, I hope you are smiling
+        right now.
+
+        <br><br>
+
+        I know this website is just a small gift,
+        but every word in it carries a little
+        piece of my heart.
+
+        <br><br>
+
+        I cannot promise that every day of our life
+        will be easy.
+
+        <br><br>
+
+        But I promise to keep choosing you,
+        loving you, supporting you,
+        and making beautiful memories with you.
+
+        <br><br>
+
+        I want to be the person who holds your hand
+        when we are young and still reaches for it
+        when we are old.
+
+        <br><br>
+
+        I want a lifetime of ordinary mornings,
+        unexpected adventures, late-night conversations,
+        silly arguments, warm hugs,
+        and countless birthdays with you.
+
+        <br><br>
+
+        And when we look back at our lives many years
+        from now, I hope we can smile and say that
+        we built something truly beautiful together.
+
     </p>
+
 
     <div class="signature">
 
-        With all my love,<br>
-        Nandini ❤️
+        With all my love,
+        <br>
+
+        Bujji (Nandini) 💋❤️
 
     </div>
 
+
     <br><br>
 
-    <button class="final-btn" onclick="celebrate()">
+
+    <button
+    class="final-btn"
+    onclick="celebrate()">
+
         🎁 One Last Surprise
+
     </button>
+
 
 </section>
 
 
-<!-- MUSIC FLOATING BUTTON -->
+<!-- FLOATING MUSIC BUTTON -->
 
 <button
 class="music-button"
@@ -1103,21 +1578,23 @@ onclick="toggleMusic()">
 
 <script>
 
+
 /* =========================
    OPEN SURPRISE
 ========================= */
 
 function openSurprise(){
 
-    const opening = document.getElementById("opening");
+    const opening =
+    document.getElementById("opening");
 
-    opening.style.opacity = "0";
+    opening.style.opacity="0";
 
     setTimeout(function(){
 
-        opening.style.display = "none";
+        opening.style.display="none";
 
-    },1200);
+    },1300);
 
 }
 
@@ -1130,9 +1607,11 @@ function updateCountdown(){
 
     const now = new Date();
 
-    let year = now.getFullYear();
+    let year =
+    now.getFullYear();
 
-    let birthday = new Date(
+    let birthday =
+    new Date(
         year,
         9,
         29,
@@ -1141,9 +1620,11 @@ function updateCountdown(){
         0
     );
 
+
     if(now > birthday){
 
-        birthday = new Date(
+        birthday =
+        new Date(
             year + 1,
             9,
             29,
@@ -1154,39 +1635,65 @@ function updateCountdown(){
 
     }
 
-    const difference = birthday - now;
 
-    const days = Math.floor(
-        difference / (1000*60*60*24)
+    const difference =
+    birthday - now;
+
+
+    const days =
+    Math.floor(
+        difference /
+        (1000*60*60*24)
     );
 
-    const hours = Math.floor(
-        (difference/(1000*60*60)) % 24
+
+    const hours =
+    Math.floor(
+        (difference /
+        (1000*60*60)) % 24
     );
 
-    const minutes = Math.floor(
-        (difference/(1000*60)) % 60
+
+    const minutes =
+    Math.floor(
+        (difference /
+        (1000*60)) % 60
     );
 
-    const seconds = Math.floor(
-        (difference/1000) % 60
+
+    const seconds =
+    Math.floor(
+        (difference /
+        1000) % 60
     );
 
-    document.getElementById("days").innerText =
-        String(days).padStart(2,"0");
 
-    document.getElementById("hours").innerText =
-        String(hours).padStart(2,"0");
+    document.getElementById("days")
+    .innerText =
+    String(days).padStart(2,"0");
 
-    document.getElementById("minutes").innerText =
-        String(minutes).padStart(2,"0");
 
-    document.getElementById("seconds").innerText =
-        String(seconds).padStart(2,"0");
+    document.getElementById("hours")
+    .innerText =
+    String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+    .innerText =
+    String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+    .innerText =
+    String(seconds).padStart(2,"0");
 
 }
 
-setInterval(updateCountdown,1000);
+
+setInterval(
+    updateCountdown,
+    1000
+);
 
 updateCountdown();
 
@@ -1199,6 +1706,7 @@ function toggleMusic(){
 
     const music =
     document.getElementById("music");
+
 
     if(music.paused){
 
@@ -1219,7 +1727,9 @@ function toggleMusic(){
 
 function makeWish(){
 
-    document.getElementById("wishMessage").style.display="block";
+    document
+    .getElementById("wishMessage")
+    .style.display="block";
 
     celebrate();
 
@@ -1233,19 +1743,18 @@ function makeWish(){
 function openSecret(){
 
     const password =
-    document.getElementById("password").value;
+    document
+    .getElementById("password")
+    .value;
 
-    /*
-       Current password: 2910
 
-       You can change it later.
-    */
+    /* Password = 2910 */
 
     if(password === "2910"){
 
-        document.getElementById(
-            "secretMessage"
-        ).style.display="block";
+        document
+        .getElementById("secretMessage")
+        .style.display="block";
 
         celebrate();
 
@@ -1266,50 +1775,60 @@ function openSecret(){
 
 function celebrate(){
 
-    for(let i=0;i<100;i++){
+    for(
+        let i=0;
+        i<120;
+        i++
+    ){
 
         const confetti =
         document.createElement("div");
 
-        confetti.className="confetti";
 
-        confetti.style.left =
+        confetti.className=
+        "confetti";
+
+
+        confetti.style.left=
         Math.random()*100+"vw";
 
-        confetti.style.background =
-        ["#ff4f81",
-         "#ffd166",
-         "#ffffff",
-         "#ff8fab",
-         "#c77dff"]
-         [Math.floor(Math.random()*5)];
 
-        confetti.style.animationDuration =
+        confetti.style.background=
+        [
+            "#ff4f81",
+            "#ffd166",
+            "#ffffff",
+            "#ff8fab",
+            "#c77dff"
+        ]
+        [
+            Math.floor(
+                Math.random()*5
+            )
+        ];
+
+
+        confetti.style.animationDuration=
         (Math.random()*3+2)+"s";
 
-        document.body.appendChild(confetti);
 
-        setTimeout(function(){
+        document.body.appendChild(
+            confetti
+        );
 
-            confetti.remove();
 
-        },5000);
+        setTimeout(
+            function(){
+
+                confetti.remove();
+
+            },
+            5000
+        );
 
     }
 
 }
-
-
-/* =========================
-   DOUBLE CLICK FINAL
-========================= */
-
-document.querySelector(".final h2")
-.addEventListener("dblclick",function(){
-
-    celebrate();
-
-});
 
 </script>
 
