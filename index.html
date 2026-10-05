@@ -3,64 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>To My Manikanta ❤️</title>
+<title>For My Manikumar ❤️</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
 body{
-    background:#070207;
-    color:#fff;
+    background:#080308;
+    color:white;
     font-family:'Montserrat',sans-serif;
-    overflow-x:hidden;
 }
 
 /* =========================
    BACKGROUND
 ========================= */
 
-body::before{
-    content:"";
+.background{
     position:fixed;
     inset:0;
-    z-index:-5;
-
     background:
-    radial-gradient(circle at 20% 20%,
-        rgba(150,20,70,.18),
-        transparent 30%),
-
-    radial-gradient(circle at 80% 50%,
-        rgba(220,40,100,.12),
-        transparent 30%),
-
-    radial-gradient(circle at 50% 100%,
-        rgba(100,10,50,.20),
-        transparent 40%),
-
-    #070207;
+        radial-gradient(circle at 20% 20%,rgba(170,25,80,.18),transparent 32%),
+        radial-gradient(circle at 80% 70%,rgba(210,35,95,.13),transparent 35%),
+        linear-gradient(135deg,#080308,#18050e,#080308);
+    z-index:-5;
 }
 
 .glow{
     position:fixed;
-    width:300px;
-    height:300px;
+    width:350px;
+    height:350px;
     border-radius:50%;
-    background:rgba(255,40,100,.08);
+    background:rgba(255,50,110,.07);
     filter:blur(100px);
     pointer-events:none;
-    z-index:-3;
+}
+
+.glow.one{
+    top:-100px;
+    left:-100px;
+}
+
+.glow.two{
+    bottom:-100px;
+    right:-100px;
 }
 
 /* =========================
@@ -70,8 +67,8 @@ body::before{
 .stars{
     position:fixed;
     inset:0;
-    pointer-events:none;
     z-index:-2;
+    pointer-events:none;
 }
 
 .star{
@@ -80,7 +77,7 @@ body::before{
     height:2px;
     background:white;
     border-radius:50%;
-    opacity:.4;
+    opacity:.3;
     animation:twinkle 4s infinite;
 }
 
@@ -89,90 +86,105 @@ body::before{
         opacity:.15;
         transform:scale(.7);
     }
-
     50%{
-        opacity:.9;
-        transform:scale(1.5);
+        opacity:.8;
+        transform:scale(1.4);
     }
 }
 
 /* =========================
-   MUSIC
+   SCENE SYSTEM
 ========================= */
 
-.music-button{
+.scene{
     position:fixed;
-    right:20px;
-    bottom:20px;
+    inset:0;
 
-    width:52px;
-    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    border-radius:50%;
-    border:1px solid rgba(255,180,200,.3);
+    padding:35px 25px;
 
-    background:rgba(50,5,25,.7);
-    color:white;
+    text-align:center;
 
-    font-size:19px;
+    opacity:0;
+    visibility:hidden;
 
-    cursor:pointer;
+    transform:scale(1.03);
 
-    z-index:100;
+    transition:
+        opacity 1.2s ease,
+        transform 1.4s ease,
+        visibility 1.2s;
 
-    backdrop-filter:blur(10px);
+    overflow:hidden;
+}
 
-    box-shadow:
-        0 0 25px rgba(255,40,100,.15);
+.scene.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
+
+.scene.exit{
+    opacity:0;
+    transform:scale(.97);
+}
+
+.content{
+    width:min(850px,92%);
+    max-height:90vh;
+    overflow:auto;
+
+    scrollbar-width:none;
+}
+
+.content::-webkit-scrollbar{
+    display:none;
 }
 
 /* =========================
-   COMMON
+   TYPOGRAPHY
 ========================= */
 
-section{
-    position:relative;
-}
-
-.center{
-    width:min(900px,92%);
-    margin:auto;
-    text-align:center;
-}
-
-.label{
+.small{
     font-size:11px;
     letter-spacing:5px;
     text-transform:uppercase;
-    color:#d987a3;
+    color:#d98ca5;
     margin-bottom:25px;
+}
+
+.script{
+    font-family:'Great Vibes',cursive;
+    font-weight:400;
+}
+
+.serif{
+    font-family:'Cormorant Garamond',serif;
 }
 
 h1{
     font-family:'Great Vibes',cursive;
+    font-size:clamp(70px,13vw,145px);
     font-weight:400;
+    line-height:1;
+    text-shadow:0 0 40px rgba(255,80,130,.3);
 }
 
 h2{
     font-family:'Cormorant Garamond',serif;
     font-weight:400;
-
-    font-size:
-        clamp(38px,7vw,72px);
-
+    font-size:clamp(36px,7vw,70px);
     line-height:1.15;
-
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .text{
     font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(22px,4vw,31px);
-
-    line-height:1.7;
-
+    font-size:clamp(22px,4vw,31px);
+    line-height:1.65;
     color:#eadfe4;
 }
 
@@ -181,77 +193,23 @@ h2{
 }
 
 /* =========================
-   OPENING
+   BUTTON
 ========================= */
 
-.hero{
-    min-height:100vh;
+.continue{
+    display:inline-block;
+    margin-top:35px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    padding:14px 28px;
 
-    text-align:center;
-
-    padding:40px 20px;
-}
-
-.hero-content{
-    max-width:900px;
-
-    animation:heroAppear 2.5s ease;
-}
-
-@keyframes heroAppear{
-
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-.hero h1{
-    font-size:
-        clamp(75px,13vw,150px);
-
-    color:#fff;
-
-    text-shadow:
-        0 0 40px rgba(255,80,130,.25);
-}
-
-.hero-subtitle{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(23px,4vw,34px);
-
-    line-height:1.6;
-
-    max-width:750px;
-
-    margin:25px auto 45px;
-
-    color:#eadfe4;
-}
-
-.open{
-    padding:16px 32px;
-
+    border:1px solid rgba(255,180,200,.3);
     border-radius:50px;
 
-    border:1px solid rgba(255,170,195,.35);
-
-    background:rgba(120,20,55,.25);
+    background:rgba(110,15,50,.22);
 
     color:white;
 
+    font-size:12px;
     letter-spacing:2px;
 
     cursor:pointer;
@@ -259,133 +217,10 @@ h2{
     transition:.4s;
 }
 
-.open:hover{
-    background:rgba(160,30,75,.4);
-
-    box-shadow:
-        0 0 35px rgba(255,60,120,.2);
-
+.continue:hover{
+    background:rgba(170,25,75,.4);
     transform:translateY(-3px);
-}
-
-/* =========================
-   STORY SECTIONS
-========================= */
-
-.story{
-    padding:150px 0;
-}
-
-.story-section{
-    min-height:85vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:100px 20px;
-}
-
-.story-section.small{
-    min-height:70vh;
-}
-
-/* =========================
-   BIG QUOTE
-========================= */
-
-.big-love{
-    min-height:90vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:100px 20px;
-}
-
-.big-love p{
-    font-family:'Great Vibes',cursive;
-
-    font-size:
-        clamp(48px,9vw,100px);
-
-    line-height:1.2;
-
-    color:#ffd7e3;
-
-    text-shadow:
-        0 0 35px rgba(255,60,120,.25);
-}
-
-/* =========================
-   LETTER
-========================= */
-
-.letter{
-    max-width:800px;
-
-    margin:auto;
-
-    padding:
-        clamp(25px,6vw,60px);
-
-    border:
-        1px solid rgba(255,170,195,.12);
-
-    border-radius:25px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.35);
-}
-
-.letter p{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(21px,3.5vw,27px);
-
-    line-height:1.85;
-
-    color:#eadfe4;
-
-    margin-bottom:25px;
-}
-
-/* =========================
-   SUPPORT SECTION
-========================= */
-
-.support{
-    background:
-        linear-gradient(
-            rgba(80,5,35,.10),
-            rgba(10,2,8,.3)
-        );
-}
-
-.support-line{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(27px,5vw,45px);
-
-    line-height:1.5;
-
-    margin:20px 0;
-
-    color:#eadde2;
+    box-shadow:0 0 30px rgba(255,50,110,.2);
 }
 
 /* =========================
@@ -393,238 +228,139 @@ h2{
 ========================= */
 
 .heart{
-    font-size:65px;
+    font-size:60px;
+    display:block;
+    margin:30px auto;
 
-    margin:35px 0;
-
-    display:inline-block;
-
-    animation:
-        heartbeat 2s infinite;
+    animation:heartbeat 2s infinite;
 }
 
 @keyframes heartbeat{
-
     0%,100%{
         transform:scale(1);
     }
 
     50%{
-        transform:scale(1.12);
+        transform:scale(1.13);
     }
-
 }
 
 /* =========================
-   PHOTOS
+   LETTER
 ========================= */
 
-.photo-section{
+.letter{
+    max-width:760px;
+    margin:auto;
 
-    min-height:90vh;
+    text-align:left;
 
-    display:flex;
+    padding:35px;
 
-    flex-direction:column;
+    border:1px solid rgba(255,160,190,.12);
+    border-radius:22px;
 
-    align-items:center;
+    background:rgba(255,255,255,.025);
 
-    justify-content:center;
-
-    padding:120px 20px;
-
-    text-align:center;
+    box-shadow:0 25px 80px rgba(0,0,0,.35);
 }
 
-.photo-frame{
+.letter p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(20px,3.5vw,26px);
+    line-height:1.75;
+    color:#eadfe4;
+    margin-bottom:20px;
+}
 
-    width:min(500px,88vw);
+/* =========================
+   PHOTO
+========================= */
 
-    padding:13px 13px 60px;
+.photo{
+    width:min(470px,86vw);
 
-    background:#f4eaea;
+    padding:12px 12px 55px;
 
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.65);
+    background:#f2e9e9;
+
+    margin:25px auto;
+
+    box-shadow:0 25px 80px rgba(0,0,0,.65);
 
     transform:rotate(-2deg);
 
-    transition:.7s;
-
-    margin:35px auto;
+    transition:.6s;
 }
 
-.photo-frame:hover{
-    transform:rotate(0deg) scale(1.02);
+.photo:hover{
+    transform:rotate(0) scale(1.02);
 }
 
-.photo-frame img{
-
+.photo img{
     width:100%;
-
     display:block;
-
-    max-height:650px;
-
+    max-height:62vh;
     object-fit:cover;
 }
 
-.photo-caption{
-
-    font-family:'Great Vibes',cursive;
-
+.caption{
     color:#32151f;
-
-    font-size:30px;
-
-    margin-top:14px;
-}
-
-.photo-description{
-
-    max-width:700px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:25px;
-
-    line-height:1.6;
-
-    color:#ded0d5;
+    font-family:'Great Vibes',cursive;
+    font-size:28px;
+    margin-top:10px;
 }
 
 /* =========================
-   EYES SECTION
+   EYES
 ========================= */
-
-.eyes{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:100px 20px;
-}
 
 .eye-line{
-
     font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(25px,5vw,43px);
-
-    margin:18px 0;
-
+    font-size:clamp(25px,5vw,43px);
     line-height:1.45;
-
-    color:#e9dce1;
-}
-
-/* =========================
-   HARD DAYS
-========================= */
-
-.hard-days{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:100px 20px;
-
-    text-align:center;
-}
-
-.hard-box{
-
-    max-width:800px;
-}
-
-.hard-box p{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(22px,4vw,31px);
-
-    line-height:1.7;
-
-    color:#eadfe4;
+    margin:15px 0;
+    color:#eadde2;
 }
 
 /* =========================
    HUG
 ========================= */
 
-.hug-section{
-
-    min-height:85vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:100px 20px;
-}
-
-.hug-button{
-
-    width:140px;
-    height:140px;
+.hug{
+    width:135px;
+    height:135px;
 
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    margin:45px auto;
+    margin:35px auto;
+
+    background:rgba(130,15,60,.25);
+
+    border:1px solid rgba(255,160,190,.3);
 
     font-size:65px;
-
-    background:
-        rgba(120,15,55,.25);
-
-    border:
-        1px solid rgba(255,160,190,.3);
 
     cursor:pointer;
 
     transition:.5s;
 }
 
-.hug-button:hover{
-
+.hug:hover{
     transform:scale(1.1);
-
-    box-shadow:
-        0 0 60px rgba(255,40,100,.25);
+    box-shadow:0 0 60px rgba(255,50,120,.25);
 }
 
-.hug-result{
-
+.hidden-message{
     display:none;
-
-    animation:fadeUp 1s ease;
+    animation:appear 1s ease;
 }
 
-@keyframes fadeUp{
-
+@keyframes appear{
     from{
         opacity:0;
         transform:translateY(20px);
@@ -634,351 +370,212 @@ h2{
         opacity:1;
         transform:translateY(0);
     }
-
-}
-
-/* =========================
-   FUTURE
-========================= */
-
-.future{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:100px 20px;
-
-    text-align:center;
-}
-
-.future-list{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(25px,5vw,40px);
-
-    line-height:1.7;
-
-    color:#eadfe4;
 }
 
 /* =========================
    CAKE
 ========================= */
 
-.cake-section{
-
-    min-height:90vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:100px 20px;
-}
-
 .cake{
-
     position:relative;
 
     width:230px;
     height:145px;
 
-    background:
-        linear-gradient(
-            #8d3153,
-            #50152e
-        );
+    margin:65px auto 25px;
 
-    border-radius:
-        15px 15px 20px 20px;
+    background:linear-gradient(#8d3153,#51152f);
 
-    margin:80px auto 30px;
+    border-radius:15px 15px 20px 20px;
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.55);
+    box-shadow:0 25px 70px rgba(0,0,0,.55);
 }
 
 .cake-top{
-
     position:absolute;
+    top:-20px;
+    left:0;
 
     width:100%;
     height:40px;
 
-    top:-20px;
-
+    background:#d5678b;
     border-radius:50%;
-
-    background:#d7678a;
 }
 
 .cake-writing{
-
     position:absolute;
-
     width:100%;
-
     top:65px;
 
     font-family:'Great Vibes',cursive;
-
     font-size:28px;
 }
 
 .candle{
-
     position:absolute;
 
     width:10px;
     height:55px;
 
-    background:#f5e0e5;
-
-    top:-75px;
     left:110px;
+    top:-75px;
+
+    background:#f4dce2;
 
     border-radius:5px;
 }
 
 .flame{
-
     position:absolute;
 
     width:20px;
     height:30px;
 
+    left:-5px;
+    top:-28px;
+
     background:#ffad35;
 
-    border-radius:
-        50% 50% 50% 0;
+    border-radius:50% 50% 50% 0;
 
     transform:rotate(-45deg);
 
-    top:-27px;
-    left:-5px;
-
-    box-shadow:
-        0 0 25px #ff8c25;
+    box-shadow:0 0 25px #ff8a20;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.4s;
 }
 
 .flame.off{
-
     opacity:0;
-
-    transform:
-        rotate(-45deg)
-        scale(0);
+    transform:rotate(-45deg) scale(0);
 }
 
 /* =========================
    SECRET
 ========================= */
 
-.secret{
-
-    min-height:80vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:100px 20px;
-
-    text-align:center;
-}
-
-.secret-area{
-
-    width:min(500px,90%);
-
-    margin:40px auto;
-}
-
 .secret-input{
+    width:min(400px,90%);
 
-    width:100%;
-
-    padding:17px;
+    padding:16px;
 
     border-radius:40px;
 
-    border:
-        1px solid rgba(255,160,190,.25);
+    border:1px solid rgba(255,170,195,.25);
 
-    background:
-        rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04);
 
     color:white;
 
     text-align:center;
 
-    font-size:18px;
-
     outline:none;
+
+    font-size:17px;
 }
 
 .secret-button{
+    display:block;
 
-    margin-top:15px;
+    margin:15px auto;
 
-    padding:14px 28px;
+    padding:13px 25px;
 
     border-radius:30px;
 
-    border:
-        1px solid rgba(255,160,190,.3);
+    border:1px solid rgba(255,170,195,.25);
 
-    background:
-        rgba(130,20,60,.3);
+    background:rgba(130,20,60,.3);
 
     color:white;
 
     cursor:pointer;
 }
 
-.secret-message{
-
-    display:none;
-
-    margin-top:50px;
-
-    animation:fadeUp 1.5s ease;
-}
-
 /* =========================
    FINAL
 ========================= */
 
-.final{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:120px 20px;
-}
-
 .final-title{
-
     font-family:'Great Vibes',cursive;
 
-    font-size:
-        clamp(55px,11vw,120px);
+    font-size:clamp(55px,10vw,110px);
 
     line-height:1.15;
 
-    color:#ffd4e0;
+    color:#ffd5e1;
 
-    text-shadow:
-        0 0 40px rgba(255,60,120,.25);
+    text-shadow:0 0 40px rgba(255,60,120,.3);
 
-    margin:40px 0;
-}
-
-.final-text{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:
-        clamp(22px,4vw,30px);
-
-    line-height:1.7;
-
-    color:#eadfe4;
+    margin:35px 0;
 }
 
 .signature{
-
     font-family:'Great Vibes',cursive;
-
     font-size:45px;
-
-    color:#ffb6ca;
-
-    margin-top:40px;
+    color:#ffb5ca;
+    margin-top:35px;
 }
 
 /* =========================
-   FLOATING HEARTS
+   MUSIC
+========================= */
+
+.music{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,170,195,.3);
+
+    background:rgba(60,5,30,.7);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:100;
+}
+
+/* =========================
+   HEART PARTICLES
 ========================= */
 
 .floating-heart{
-
     position:fixed;
 
     pointer-events:none;
 
     z-index:200;
 
-    animation:
-        floatHeart 3s ease-out forwards;
+    animation:floatHeart 3s ease-out forwards;
 }
 
 @keyframes floatHeart{
 
     0%{
         opacity:1;
-
-        transform:
-            translateY(0)
-            scale(.7);
+        transform:translateY(0) scale(.7);
     }
 
     100%{
         opacity:0;
-
         transform:
-            translateY(-250px)
+            translateY(-260px)
             scale(1.5)
             rotate(25deg);
     }
-}
-
-/* =========================
-   REVEAL
-========================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:translateY(45px);
-
-    transition:
-        opacity 1.4s ease,
-        transform 1.4s ease;
-}
-
-.reveal.visible{
-
-    opacity:1;
-
-    transform:translateY(0);
 }
 
 /* =========================
@@ -987,97 +584,78 @@ h2{
 
 @media(max-width:600px){
 
-    .story{
-        padding:70px 0;
+    .scene{
+        padding:25px 15px;
     }
 
     .letter{
-        padding:25px;
+        padding:22px;
     }
 
-    .photo-frame{
+    .letter p{
+        font-size:20px;
+    }
+
+    .photo{
         padding-bottom:45px;
-    }
-
-    .support-line{
-        font-size:27px;
     }
 
 }
 </style>
 </head>
 
-
 <body>
 
-<div class="stars" id="stars"></div>
+<div class="background"></div>
 
-<div class="glow" style="top:15%;left:5%;"></div>
-<div class="glow" style="top:55%;right:5%;"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<div class="stars" id="stars"></div>
 
 
 <!-- MUSIC -->
 
-<button
-    class="music-button"
-    id="musicButton"
-    onclick="toggleMusic()">
-
-    ♫
-
+<button class="music" id="musicButton" onclick="toggleMusic()">
+♫
 </button>
 
-<audio id="music" loop>
-    <source
-        src="the_mountain-happy-birthday-576570.mp3"
-        type="audio/mpeg">
+<audio id="musicPlayer" loop>
+    <source src="the_mountain-happy-birthday-576570.mp3" type="audio/mpeg">
 </audio>
 
 
 <!-- ======================================================
-     ONE CONTINUOUS STORY
+     SCENE 1
 ====================================================== -->
 
-<main>
+<section class="scene active" id="scene1">
 
+<div class="content">
 
-<!-- OPENING -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<div class="label">
-A letter from my heart
+<div class="small">
+A little piece of my heart
 </div>
 
 <h1>
-Manikanta
+Manikumar
 </h1>
 
-<p class="hero-subtitle">
+<p class="text">
 
-I made this little place for you...
-
-<br>
-
-because there are some things
-I have been carrying in my heart
-that I don't always know how to say.
+I made this little place
+just for you.
 
 <br><br>
 
-So today,
-I want you to hear them.
+Because there are some feelings
+that are too deep for an ordinary
+birthday message.
 
 </p>
 
-<button
-    class="open"
-    onclick="begin()">
-
+<button class="continue" onclick="startStory()">
 OPEN MY HEART ❤️
-
 </button>
 
 </div>
@@ -1085,19 +663,21 @@ OPEN MY HEART ❤️
 </section>
 
 
+<!-- ======================================================
+     SCENE 2
+====================================================== -->
 
-<!-- FIRST FEELING -->
+<section class="scene" id="scene2">
 
-<section class="story-section reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 My love
 </div>
 
 <h2>
-Do you know what you became to me?
+Do you know what
+you became to me?
 </h2>
 
 <p class="text">
@@ -1118,19 +698,18 @@ when life becomes difficult.
 <br><br>
 
 The person whose presence
-makes everything feel a little lighter.
+makes everything feel
+a little lighter.
 
 </p>
 
-<span class="heart">
-❤️
-</span>
+<span class="heart">❤️</span>
 
 <p class="text">
 
 And somewhere along the way...
 
-<br>
+<br><br>
 
 <span class="pink">
 you became my strength.
@@ -1138,76 +717,55 @@ you became my strength.
 
 </p>
 
-</div>
-
-</section>
-
-
-
-<!-- BIG LOVE -->
-
-<section class="big-love reveal">
-
-<div>
-
-<p>
-You didn't just become
-someone I love...
-</p>
-
-<br>
-
-<p>
-You became
-<strong>home.</strong>
+<button class="continue" onclick="nextScene()">
 ❤️
-</p>
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 3
+====================================================== -->
 
-<!-- SUPPORT -->
+<section class="scene" id="scene3">
 
-<section class="story-section support reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
-Something I want you to know
+<div class="small">
+Something I don't say enough
 </div>
 
 <h2>
-Your support means more to me
-than you know.
+Your support means
+more to me than you know.
 </h2>
 
-<div class="support-line">
-You have believed in me.
-</div>
-
-<div class="support-line">
-You have encouraged me.
-</div>
-
-<div class="support-line">
-You have stood beside me.
-</div>
-
-<div class="support-line">
-You have listened to me.
-</div>
-
-<div class="support-line">
-You have made me feel
-that I am not alone.
-</div>
-
-<br>
-
 <p class="text">
+
+You have believed in me.
+
+<br><br>
+
+You have encouraged me.
+
+<br><br>
+
+You have stood beside me.
+
+<br><br>
+
+You have listened to me.
+
+<br><br>
+
+You have made me feel
+that I don't have to face
+everything alone.
+
+<br><br>
 
 Maybe some of these things
 felt small to you.
@@ -1218,38 +776,31 @@ But they were never small to me.
 
 <br><br>
 
-They became memories.
-
-<br>
-
-They became strength.
-
-<br>
-
-They became reasons to smile.
-
-<br><br>
-
 <span class="pink">
-They became part of why I love you so deeply.
+They became strength.
 </span>
 
 </p>
+
+<button class="continue" onclick="nextScene()">
+Continue ❤️
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 4
+====================================================== -->
 
-<!-- LETTER -->
+<section class="scene" id="scene4">
 
-<section class="story-section reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
-From my heart
+<div class="small">
+A letter from me to you
 </div>
 
 <div class="letter">
@@ -1259,235 +810,252 @@ My love,
 </p>
 
 <p>
-
 I don't always know how to express
 everything that I feel for you.
-
 </p>
 
 <p>
-
 Sometimes I may not say it.
-
-Sometimes I may be quiet.
-
-Sometimes ordinary life becomes so busy
-that I forget to tell you
-what my heart already knows.
-
 </p>
 
 <p>
-
-But today I want you to know...
-
+Sometimes ordinary life becomes busy
+and I forget to tell you the things
+my heart already knows.
 </p>
 
 <p>
+But I want you to know...
+</p>
 
-<strong class="pink">
+<p>
+<span class="pink">
 I notice you.
-</strong>
-
+</span>
 </p>
 
 <p>
-
 I notice your efforts.
+</p>
 
+<p>
 I notice the way you care.
+</p>
 
+<p>
 I notice the way you support me.
+</p>
 
+<p>
 I notice the strength you carry.
-
 </p>
 
 <p>
-
-And I want you to know
-that I appreciate all of it.
-
+And I appreciate all of it
+more than I probably say.
 </p>
 
 <p>
-
-More than I probably say.
-
+Thank you for believing in me.
 </p>
 
 <p>
-
-Thank you for being the person
-who makes me feel
-that I don't have to face everything alone.
-
-</p>
-
-<p>
-
-Thank you for believing in me
-even when I doubt myself.
-
-</p>
-
-<p>
-
 Thank you for standing beside me.
-
 </p>
 
 <p>
-
-Thank you for simply being there.
-
+Thank you for making me feel
+that I am not alone.
 </p>
 
 <p>
-
-<strong class="pink">
+<span class="pink">
 Thank you for being you.
-</strong>
-
+</span>
 </p>
 
 </div>
+
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 5 PHOTO
+====================================================== -->
 
-<!-- PHOTO 1 -->
+<section class="scene" id="scene5">
 
-<section class="photo-section reveal">
+<div class="content">
 
-<div class="label">
-A moment I want to keep
+<div class="small">
+A memory I want to keep
 </div>
 
-<h2>
-Some memories become part of our hearts.
-</h2>
+<div class="photo">
 
-<div class="photo-frame">
+<img src="DSC_3515.JPG" alt="Our memory">
 
-<img
-src="DSC_3515.JPG"
-alt="Our memory">
-
-<div class="photo-caption">
+<div class="caption">
 You & me ❤️
 </div>
 
 </div>
 
-<p class="photo-description">
+<p class="text">
 
-When I look at this photograph,
-I don't just see a picture.
+When I look at this picture,
+I don't just see a photograph.
+
+<br><br>
 
 I see a moment.
 
+<br>
+
 A feeling.
+
+<br>
 
 A memory that became part of us.
 
 </p>
 
+<button class="continue" onclick="nextScene()">
+Keep going ❤️
+</button>
+
+</div>
+
 </section>
 
 
+<!-- ======================================================
+     SCENE 6 PHOTO
+====================================================== -->
 
-<!-- PHOTO 2 -->
+<section class="scene" id="scene6">
 
-<section class="photo-section reveal">
+<div class="content">
 
-<div class="photo-frame">
+<div class="photo">
 
-<img
-src="DSC_3604.JPG"
-alt="Our memory">
+<img src="DSC_3604.JPG" alt="Our memory">
 
-<div class="photo-caption">
+<div class="caption">
 My favourite person.
 </div>
 
 </div>
 
-<p class="photo-description">
+<p class="text">
 
 Time moves.
 
+<br>
+
 Days disappear.
 
+<br>
+
 Life changes.
+
+<br><br>
 
 But some moments quietly become
 permanent parts of our hearts.
 
 </p>
 
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
+
+</div>
+
 </section>
 
 
+<!-- ======================================================
+     SCENE 7 PHOTO
+====================================================== -->
 
-<!-- PHOTO 3 -->
+<section class="scene" id="scene7">
 
-<section class="photo-section reveal">
+<div class="content">
 
-<div class="photo-frame">
+<div class="photo">
 
-<img
-src="IMG_20251002_153213.jpg"
-alt="Our memory">
+<img src="IMG_20251002_153213.jpg" alt="Our memory">
 
-<div class="photo-caption">
-A memory with you ❤️
+<div class="caption">
+A memory with you.
 </div>
 
 </div>
 
-<p class="photo-description">
+<p class="text">
 
 If I could keep one thing forever,
 it wouldn't be a photograph.
 
+<br><br>
+
 It would be the feeling
-I had while living that moment with you.
+I had while living that moment
+with you.
 
 </p>
+
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
+
+</div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 8 PHOTO
+====================================================== -->
 
-<!-- PHOTO 4 -->
+<section class="scene" id="scene8">
 
-<section class="photo-section reveal">
+<div class="content">
 
-<div class="photo-frame">
+<div class="photo">
 
-<img
-src="IMG_20260907_151750.jpg"
-alt="Our memory">
+<img src="IMG_20260907_151750.jpg" alt="Our memory">
 
-<div class="photo-caption">
+<div class="caption">
 And I want many more.
 </div>
 
 </div>
 
-<p class="photo-description">
+<p class="text">
 
 More photographs.
 
+<br>
+
 More laughter.
+
+<br>
 
 More ordinary days.
 
+<br>
+
 More beautiful moments.
+
+<br>
 
 More difficult days
 that we overcome together.
@@ -1500,17 +1068,24 @@ More us.
 
 </p>
 
+<button class="continue" onclick="nextScene()">
+Continue ❤️
+</button>
+
+</div>
+
 </section>
 
 
+<!-- ======================================================
+     SCENE 9
+====================================================== -->
 
-<!-- THROUGH MY EYES -->
+<section class="scene" id="scene9">
 
-<section class="eyes reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 If you could see yourself through my eyes
 </div>
 
@@ -1526,10 +1101,6 @@ than he realizes.
 
 <div class="eye-line">
 I see someone worth being proud of.
-</div>
-
-<div class="eye-line">
-I see someone whose presence matters.
 </div>
 
 <div class="eye-line">
@@ -1552,8 +1123,6 @@ I see someone I want to see happy.
 I see someone I love.
 </div>
 
-<br>
-
 <p class="text">
 
 And if you could see yourself
@@ -1561,37 +1130,39 @@ the way I see you...
 
 <br><br>
 
-maybe you would finally understand
-
-<br>
-
 <span class="pink">
+maybe you would finally understand
 why you mean so much to me.
 </span>
 
 </p>
+
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 10
+====================================================== -->
 
-<!-- HARD DAYS -->
+<section class="scene" id="scene10">
 
-<section class="hard-days reveal">
+<div class="content">
 
-<div class="hard-box">
-
-<div class="label">
-For the days life feels heavy
+<div class="small">
+For the difficult days
 </div>
 
 <h2>
 Please remember this.
 </h2>
 
-<p>
+<p class="text">
 
 You don't have to be strong
 every second.
@@ -1625,33 +1196,33 @@ come to me.
 
 Let me be your place to breathe.
 
-Let me remind you of your strength
-when you temporarily forget it.
-
 <br><br>
 
-Because I believe in you.
-
-<br>
-
-Even on the days
-when you don't believe in yourself.
+Because I believe in you,
+even on the days
+when you don't believe
+in yourself.
 
 </p>
+
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 11 HUG
+====================================================== -->
 
-<!-- HUG -->
+<section class="scene" id="scene11">
 
-<section class="hug-section reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 Come here...
 </div>
 
@@ -1671,17 +1242,11 @@ the longest hug.
 
 </p>
 
-<div
-    class="hug-button"
-    onclick="hug()">
-
+<div class="hug" onclick="showHug()">
 ❤️
-
 </div>
 
-<div
-    class="hug-result"
-    id="hugResult">
+<div class="hidden-message" id="hugMessage">
 
 <p class="text">
 
@@ -1703,6 +1268,10 @@ from Bujji.
 
 </p>
 
+<button class="continue" onclick="nextScene()">
+Continue ❤️
+</button>
+
 </div>
 
 </div>
@@ -1710,14 +1279,15 @@ from Bujji.
 </section>
 
 
+<!-- ======================================================
+     SCENE 12 FUTURE
+====================================================== -->
 
-<!-- FUTURE -->
+<section class="scene" id="scene12">
 
-<section class="future reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 The life I hope for
 </div>
 
@@ -1726,13 +1296,19 @@ I don't know exactly
 what tomorrow holds.
 </h2>
 
-<p class="future-list">
+<p class="text">
 
 But I know what I want.
 
 <br><br>
 
-More mornings with you.
+<span class="pink">
+You.
+</span>
+
+<br><br>
+
+More mornings.
 
 <br>
 
@@ -1757,7 +1333,7 @@ More ordinary moments.
 <br>
 
 More difficult days
-that we face together.
+that we overcome together.
 
 <br>
 
@@ -1767,67 +1343,78 @@ More memories.
 
 <span class="pink">
 More life.
-
 <br>
-
 More love.
-
 <br>
-
 More us.
 </span>
 
 </p>
 
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
+
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 13 CHOICE
+====================================================== -->
 
-<!-- CHOICE -->
+<section class="scene" id="scene13">
 
-<section class="big-love reveal">
+<div class="content">
 
-<div>
+<div class="small">
+If life gave me the choice again...
+</div>
 
-<p>
-And if life gave me
-the choice again...
-</p>
+<div class="final-title">
+I would still
+choose you.
+</div>
 
-<br><br>
+<p class="text">
 
-<p>
-I would still choose you.
-</p>
+Again.
 
 <br>
 
-<p>
-Again.
+And again.
+
+<br>
+
+And again.
+
+<br><br>
+
+<span class="pink">
+Every single time. ❤️
+</span>
+
 </p>
 
-<p>
-And again.
-</p>
-
-<p>
-And again.
+<button class="continue" onclick="nextScene()">
 ❤️
-</p>
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 14 BIRTHDAY
+====================================================== -->
 
-<!-- CAKE -->
+<section class="scene" id="scene14">
 
-<section class="cake-section reveal">
+<div class="content">
 
-<div class="label">
+<div class="small">
 29 October
 </div>
 
@@ -1838,19 +1425,38 @@ my love. 🎂
 
 <p class="text">
 
-Today the world celebrates
+Today I celebrate
 the day you were born.
 
 <br><br>
 
-But I celebrate something else too...
+But secretly,
+I celebrate something else too.
 
 <br><br>
 
 The fact that the person
 born on this day
 would one day become
-such an important part of my life.
+such an important part
+of my life.
+
+<br><br>
+
+Someone I would trust.
+
+<br>
+
+Someone I would love.
+
+<br>
+
+Someone I would lean on.
+
+<br>
+
+Someone I would call
+my strength.
 
 </p>
 
@@ -1865,36 +1471,33 @@ Happy Birthday
 <div class="candle">
 
 <div
-    class="flame"
-    id="flame"
-    onclick="blowCandle()">
+class="flame"
+id="flame"
+onclick="blowCandle()">
 </div>
 
 </div>
 
 </div>
 
-<p
-    class="label"
-    id="cakeText">
-
-Make a wish...
-<br>
-Then tap the flame ❤️
-
+<p class="small" id="cakeText">
+Tap the candle and make a wish ❤️
 </p>
+
+</div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 15 WISH
+====================================================== -->
 
-<!-- BIRTHDAY WISH -->
+<section class="scene" id="scene15">
 
-<section class="story-section reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 My birthday wish for you
 </div>
 
@@ -1922,11 +1525,6 @@ in your heart.
 
 <br><br>
 
-I want you to always remember
-how capable you are.
-
-<br><br>
-
 And whenever life gets difficult,
 I want you to remember
 that someone is always
@@ -1935,62 +1533,66 @@ standing in your corner.
 <br><br>
 
 <span class="pink">
-Me.
+Me. ❤️
 </span>
 
 </p>
+
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SCENE 16 SECRET
+====================================================== -->
 
-<!-- SECRET -->
+<section class="scene" id="scene16">
 
-<section class="secret reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 Only for you
 </div>
 
 <h2>
-There is one message
-I kept hidden.
+A letter I kept hidden.
 </h2>
 
 <p class="text">
 
-Some feelings are too precious
-to leave where everyone can see them.
+There is one message
+I want only you to read.
 
 <br><br>
 
-So this one is just between us.
+Enter our little secret.
 
 </p>
 
-<div class="secret-area">
+<br>
 
 <input
-    id="secretInput"
-    class="secret-input"
-    type="password"
-    placeholder="Enter our secret ❤️">
+id="secretInput"
+class="secret-input"
+type="password"
+placeholder="Enter the secret ❤️">
 
 <button
-    class="secret-button"
-    onclick="unlock()">
+class="secret-button"
+onclick="unlock()">
 
 Unlock My Heart
 
 </button>
 
 <div
-    class="secret-message"
-    id="secretMessage">
+id="secretMessage"
+class="hidden-message">
 
 <p class="text">
 
@@ -2057,7 +1659,9 @@ You are home. ❤️
 
 </p>
 
-</div>
+<button class="continue" onclick="nextScene()">
+❤️
+</button>
 
 </div>
 
@@ -2066,50 +1670,57 @@ You are home. ❤️
 </section>
 
 
+<!-- ======================================================
+     FINAL SCENE
+====================================================== -->
 
-<!-- FINAL -->
+<section class="scene" id="scene17">
 
-<section class="final reveal">
+<div class="content">
 
-<div class="center">
-
-<div class="label">
+<div class="small">
 One last thing...
 </div>
 
-<p class="final-text">
+<p class="text">
 
-I don't promise that
-every day will be perfect.
-
-<br><br>
-
-But I promise that
-I will treasure the days we get.
+Manikumar...
 
 <br><br>
 
-I don't promise that
-life will always be easy.
+I don't know what tomorrow brings.
 
 <br><br>
 
-But I want to face
-the difficult days with you.
+I don't know how life will change us.
 
 <br><br>
 
-I don't promise that
-we will never change.
-
-<br><br>
-
-But I hope we keep
-choosing each other
-through every change.
+But I know who I want beside me.
 
 </p>
 
+<div class="final-title">
+You.
+</div>
+
+<p class="text">
+
+Through the beautiful days.
+
+<br>
+
+Through the difficult ones.
+
+<br>
+
+Through every change.
+
+<br>
+
+Through every chapter.
+
+</p>
 
 <div class="final-title">
 
@@ -2123,23 +1734,7 @@ CHOOSE YOU. ❤️
 
 </div>
 
-
-<p class="final-text">
-
-Manikanta...
-
-<br><br>
-
-You are not just
-someone I love.
-
-<br><br>
-
-You are one of the
-most beautiful parts
-of my life.
-
-<br><br>
+<p class="text">
 
 Thank you for supporting me.
 
@@ -2172,7 +1767,6 @@ than these words can explain.
 
 </p>
 
-
 <div class="signature">
 
 Forever yours,
@@ -2188,20 +1782,16 @@ Bujji ❤️
 </section>
 
 
-</main>
-
-
-
 <script>
 
-/* =========================
-   STARS
-========================= */
+/* =========================================
+   CREATE STARS
+========================================= */
 
 const stars =
 document.getElementById("stars");
 
-for(let i=0;i<130;i++){
+for(let i=0;i<140;i++){
 
     const star =
     document.createElement("div");
@@ -2221,49 +1811,107 @@ for(let i=0;i<130;i++){
 }
 
 
-/* =========================
-   MUSIC
-========================= */
+/* =========================================
+   SCENE CONTROL
+========================================= */
+
+let currentScene = 1;
+
+const totalScenes = 17;
+
+
+function showScene(number){
+
+    if(number < 1){
+        number = 1;
+    }
+
+    if(number > totalScenes){
+        number = totalScenes;
+    }
+
+    const oldScene =
+    document.getElementById(
+        "scene"+currentScene
+    );
+
+    const newScene =
+    document.getElementById(
+        "scene"+number
+    );
+
+    if(oldScene){
+
+        oldScene.classList.remove("active");
+
+        oldScene.classList.add("exit");
+
+        setTimeout(()=>{
+
+            oldScene.classList.remove("exit");
+
+        },1400);
+    }
+
+    setTimeout(()=>{
+
+        newScene.classList.add("active");
+
+    },250);
+
+    currentScene = number;
+}
+
+
+function nextScene(){
+
+    showScene(currentScene+1);
+
+}
+
+
+/* =========================================
+   START
+========================================= */
 
 const music =
-document.getElementById("music");
+document.getElementById("musicPlayer");
 
 const musicButton =
 document.getElementById("musicButton");
 
-let musicPlaying=false;
+let playing=false;
 
 
-function begin(){
+function startStory(){
 
     music.play()
     .then(()=>{
 
-        musicPlaying=true;
+        playing=true;
 
         musicButton.innerHTML="❚❚";
 
     })
     .catch(()=>{});
 
+    createHearts(15);
 
-    document.querySelector(
-        ".story-section"
-    ).scrollIntoView({
-        behavior:"smooth"
-    });
-
-    hearts(12);
+    showScene(2);
 }
 
 
+/* =========================================
+   MUSIC
+========================================= */
+
 function toggleMusic(){
 
-    if(musicPlaying){
+    if(playing){
 
         music.pause();
 
-        musicPlaying=false;
+        playing=false;
 
         musicButton.innerHTML="♫";
 
@@ -2271,7 +1919,7 @@ function toggleMusic(){
 
         music.play();
 
-        musicPlaying=true;
+        playing=true;
 
         musicButton.innerHTML="❚❚";
 
@@ -2279,89 +1927,47 @@ function toggleMusic(){
 }
 
 
-/* =========================
-   REVEAL
-========================= */
-
-const revealElements =
-document.querySelectorAll(".reveal");
-
-const observer =
-new IntersectionObserver(
-
-    entries=>{
-
-        entries.forEach(entry=>{
-
-            if(entry.isIntersecting){
-
-                entry.target
-                .classList
-                .add("visible");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold:.15
-    }
-
-);
-
-revealElements.forEach(
-    element =>
-    observer.observe(element)
-);
-
-
-/* =========================
+/* =========================================
    HUG
-========================= */
+========================================= */
 
-function hug(){
+function showHug(){
 
-    const result =
+    const message =
     document.getElementById(
-        "hugResult"
+        "hugMessage"
     );
 
-    result.style.display="block";
+    message.style.display="block";
 
-    hearts(30);
+    createHearts(35);
 }
 
 
-/* =========================
+/* =========================================
    CAKE
-========================= */
+========================================= */
 
 function blowCandle(){
 
     const flame =
-    document.getElementById(
-        "flame"
-    );
+    document.getElementById("flame");
 
     const text =
-    document.getElementById(
-        "cakeText"
-    );
+    document.getElementById("cakeText");
 
     flame.classList.add("off");
 
     text.innerHTML =
     "Wish made. ❤️ May this year bring you everything your heart deserves.";
 
-    hearts(40);
+    createHearts(45);
 }
 
 
-/* =========================
+/* =========================================
    SECRET
-========================= */
+========================================= */
 
 function unlock(){
 
@@ -2375,7 +1981,7 @@ function unlock(){
         "secretMessage"
     );
 
-    if(input.value==="2910"){
+    if(input.value === "2910"){
 
         message.style.display="block";
 
@@ -2385,55 +1991,37 @@ function unlock(){
             ".secret-button"
         ).style.display="none";
 
-        hearts(40);
+        createHearts(45);
 
     }else{
 
         input.value="";
 
-        input.placeholder =
+        input.placeholder=
         "Try again, my love ❤️";
 
         input.animate(
 
             [
-                {
-                    transform:
-                    "translateX(0)"
-                },
-
-                {
-                    transform:
-                    "translateX(-8px)"
-                },
-
-                {
-                    transform:
-                    "translateX(8px)"
-                },
-
-                {
-                    transform:
-                    "translateX(0)"
-                }
-
+                {transform:"translateX(0)"},
+                {transform:"translateX(-8px)"},
+                {transform:"translateX(8px)"},
+                {transform:"translateX(0)"}
             ],
 
             {
                 duration:350
             }
-
         );
-
     }
 }
 
 
-/* =========================
-   HEARTS
-========================= */
+/* =========================================
+   FLOATING HEARTS
+========================================= */
 
-function hearts(count){
+function createHearts(amount){
 
     const symbols=[
         "❤️",
@@ -2443,7 +2031,7 @@ function hearts(count){
         "💞"
     ];
 
-    for(let i=0;i<count;i++){
+    for(let i=0;i<amount;i++){
 
         setTimeout(()=>{
 
@@ -2465,27 +2053,38 @@ function hearts(count){
             Math.random()*100+"vw";
 
             heart.style.bottom=
-            Math.random()*30+"px";
+            Math.random()*25+"px";
 
             heart.style.fontSize=
-            (15+
-            Math.random()*25)+"px";
+            (15+Math.random()*25)+"px";
 
-            document.body.appendChild(
-                heart
-            );
+            document.body.appendChild(heart);
 
-            setTimeout(
-                ()=>{
-                    heart.remove();
-                },
-                3000
-            );
+            setTimeout(()=>{
 
-        },i*70);
+                heart.remove();
 
+            },3000);
+
+        },i*60);
     }
 }
+
+
+/* =========================================
+   KEYBOARD SUPPORT
+   Hidden from normal visitor experience.
+========================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(event.key==="ArrowRight"){
+        nextScene();
+    }
+
+});
 
 </script>
 
